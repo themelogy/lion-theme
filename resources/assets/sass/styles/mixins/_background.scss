@@ -1,0 +1,6 @@
+@mixin background-size($default:cover) {
+  -webkit-background-size: $default;
+  -moz-background-size: $default;
+  -o-background-size: $default;
+  background-size: $default;
+}

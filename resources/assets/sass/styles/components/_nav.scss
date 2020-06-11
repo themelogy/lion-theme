@@ -1,0 +1,26 @@
+.nav-tabs > li > a {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.nav-pills > li.active > a {
+  background: #ed8323;
+  cursor: default;
+  &:hover {
+    background: #ed8323;
+  }
+}
+
+.nav-sm > li > a {
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+.nav-no-br > li > a {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.nav-bot-space {
+  margin-bottom: 15px;
+}

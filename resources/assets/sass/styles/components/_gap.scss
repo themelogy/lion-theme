@@ -1,0 +1,41 @@
+.gap {
+  display: block;
+  position: relative;
+  margin: 20px 0 20px 0;
+  clear: both;
+  &:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+.gap-small {
+  margin: 15px 0 15px 0;
+}
+
+.gap-mini {
+  margin: 10px 0 10px 0;
+}
+
+.gap-big {
+  margin: 60px 0 60px 0;
+}
+
+.gap-large {
+  margin: 90px 0 90px 0;
+}
+
+.gap-top {
+  margin-bottom: 0 !important;
+}
+
+.gap-bottom {
+  margin-top: 0 !important;
+}
+
+.gap-border {
+  border: 0;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #fff;
+}

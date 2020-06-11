@@ -1,0 +1,7 @@
+@function check-color($color, $light, $dark) {
+  @if (lightness($color) > 53) {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}

@@ -1,0 +1,119 @@
+
+div.nav-drop {
+  display: inline-block;
+}
+
+.nav-drop {
+  position: relative;
+  padding-right: 23px !important;
+  ///border:1px solid darken(white, 10%);
+  .fa-angle-up, .fa-angle-down {
+    position: absolute;
+    right: 8px;
+    line-height: inherit;
+    top: 0;
+    font-size: 90%;
+    opacity: 0.7;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity = 70);
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .fa-angle-up {
+    top: 5px;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity = 0);
+  }
+  > .nav-drop-menu {
+    min-width: 85px;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 999;
+    left: -5px;
+    color: #fff;
+    -webkit-transform: translate3d(0, 10px, 0);
+    -moz-transform: translate3d(0, 10px, 0);
+    -o-transform: translate3d(0, 10px, 0);
+    -ms-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity = 0);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    -o-transition: opacity 0.3s, -o-transform 0.3s;
+    -ms-transition: opacity 0.3s, -ms-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    > li {
+      > a {
+        background: $nav-drop-bg-color;
+        color: $nav-drop-link-color !important;
+        padding: 5px 15px;
+        line-height: 1em;
+        border-bottom: 1px solid $nav-drop-border-color;
+        display: block;
+        position: relative;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -o-transition: 0.3s;
+        -ms-transition: 0.3s;
+        transition: 0.3s;
+        > .right {
+          float: right;
+        }
+        &:hover {
+          color: $nav-drop-link-hover-color !important;
+          background: $nav-drop-hover-bg-color;
+        }
+      }
+      &:last-child > a {
+        border-bottom: none;
+      }
+      &:first-child > a:before {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent $nav-drop-bg-color transparent;
+        top: -10px;
+        left: 10px;
+      }
+    }
+  }
+  &.active-drop {
+    .fa-angle-up {
+      top: 0;
+      opacity: 1;
+      -ms-filter: none;
+      filter: none;
+    }
+    .fa-angle-down {
+      top: 5px;
+      opacity: 0;
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity = 0);
+    }
+    > .nav-drop-menu {
+      height: auto;
+      overflow: visible;
+      opacity: 1;
+      -ms-filter: none;
+      filter: none;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}

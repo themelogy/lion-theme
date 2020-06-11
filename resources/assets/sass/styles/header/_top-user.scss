@@ -1,0 +1,91 @@
+.top-user-area {
+  font-size: 12px;
+  position: relative;
+  > ul > li {
+    line-height: 40px;
+  }
+  .top-user-area-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    > li {
+      position: relative;
+      border: none !important;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 30%;
+        right: 0;
+        height: 40%;
+        background: rgba(255, 255, 255, 0.13);
+        width: 1px;
+      }
+      &:last-child:after {
+        background: none;
+      }
+      > a {
+        color: $top-link-color;
+        &:hover {
+          color: $top-link-hover-color;
+        }
+      }
+      &.top-user-area-avatar {
+        font-weight: 400;
+        > a {
+          > img {
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            -ms-transition: 0.3s;
+            transition: 0.3s;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+          }
+          &:hover > img {
+            border: 2px solid #ed8323;
+          }
+        }
+      }
+      &.top-user-area-lang {
+        > a {
+          > img {
+            margin-top: -2px;
+            width: 16px;
+            height: 16px;
+            margin-right: 3px;
+            opacity: 0.8;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+            filter: alpha(opacity = 80);
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            -ms-transition: 0.3s;
+            transition: 0.3s;
+          }
+          &:hover > img {
+            opacity: 1;
+            -ms-filter: none;
+            filter: none;
+          }
+        }
+        .nav-drop-menu li a {
+          line-height: 20px;
+          img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 992px) {
+  .top-user-area .top-user-area-list {
+    margin-top: 0;
+    position: relative;
+  }
+}

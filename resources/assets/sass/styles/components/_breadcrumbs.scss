@@ -1,0 +1,42 @@
+
+.breadcrumb {
+  background: none;
+  padding: 0;
+  font-size: 13px;
+  margin-top: 15px;
+  margin-bottom: 0;
+  > li + li:before {
+    content: '\f105';
+    font-family: 'FontAwesome';
+    padding: 0 7px;
+  }
+}
+
+.breadcrumbs {
+  padding: 12px;
+  border-bottom: 1px solid $gray;
+  border-top: 1px solid $gray;
+  ol {
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      color: #5e6977;
+      font-size: 14px;
+      &:after {
+        content: " / ";
+        padding: 0 10px;
+        color: $gray;
+      }
+      &:last-child::after {
+        content: " ";
+      }
+      a {
+        color: $default-theme-color;
+        &:hover {
+          color: lighten($default-theme-color, 5%);
+        }
+      }
+    }
+  }
+}

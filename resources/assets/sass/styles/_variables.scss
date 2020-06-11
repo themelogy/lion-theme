@@ -1,0 +1,77 @@
+//Colors
+$theme-colors: (
+        red1: rgb(220,56,50),
+        red2: #D8877B,
+        black1: #221E20,
+        grey1: darken(white, 2.5%),
+        grey2: darken(white, 5%),
+        grey3: darken(white, 10%),
+        grey4: darken(white, 50%),
+        grey5: darken(white, 60%),
+        grey6: darken(white, 70%),
+        grey7: darken(white, 75%),
+        white: darken(white, 2%)
+);
+
+$white                      : map_get($theme-colors, white);
+$black                      : #000000;
+$gray                       : map_get($theme-colors, grey3);
+$darkgray                   : map_get($theme-colors, grey4);
+$muted                      : map_get($theme-colors, grey5);
+
+$default-theme-color        : map_get($theme-colors, red1);
+$default-txt-color          : map_get($theme-colors, grey5);
+
+$default-theme-font         : 'Roboto', Tahoma, Arial, helvetica, sans-serif;
+
+$default-link-color         : $default-txt-color;
+$default-hover-color        : $default-theme-color;
+
+
+//Header
+$header-bg-color            : $white;
+$header-border-color        : darken(white, 10%);
+
+//--Logo--//
+$logo-border-color          : rgba($black, 0.5);
+
+//--Top--//
+$top-bg                     : map_get($theme-colors, grey2);
+$top-txt-color              : check-color($top-bg, $white, $default-txt-color);
+$top-link-color             : check-color($top-bg, $white, $default-txt-color);
+$top-link-hover-color       : $default-theme-color;
+$top-social-link-color      : check-color($top-bg, $white, $default-txt-color);
+$top-social-link-hover      : check-color($top-bg, $default-theme-color, $default-txt-color);
+
+//--Menu--//
+$menu-txt-bg-hover-color    : $white;
+$menu-txt-color             : map_get($theme-colors, grey5);
+$menu-txt-hover-color       : $default-hover-color;
+$menu-collapse-bg-color     : $top-bg;
+$menu-collapse-txt-color    : $white;
+$menu-font-size             : 0.95em;
+$menu-letter-spacing        : 0;
+$menu-dropdown-bg-color     : $header-bg-color;
+$menu-dropdown-link-color   : $menu-txt-color;
+
+//--Nav-Drop--//
+$nav-drop-bg-color          : map_get($theme-colors, grey2);
+$nav-drop-border-color      : darken($nav-drop-bg-color, 10%);
+$nav-drop-link-color        : $darkgray;
+$nav-drop-link-hover-color  : $white;
+$nav-drop-hover-bg-color    : $default-hover-color;
+
+//Footer
+$footer-bg-color            : lighten($top-bg, 5%);
+$footer-bottom-bg-color     : darken($footer-bg-color, 5%);
+$footer-border-color        : lighten($footer-bg-color, 5%);
+
+$footer-link-txt-size       : 0.95em;
+$footer-link-color          : $default-link-color;
+$footer-link-hover-color    : $default-theme-color;
+
+@mixin top-border() {
+  border-bottom: 1px solid darken($top-bg, 5%);
+}
+
+@import "variables/smartmenus";

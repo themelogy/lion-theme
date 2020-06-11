@@ -1,0 +1,23 @@
+
+.main-header-search {
+  top: 4px;
+  position: relative;
+  .form-control {
+    margin-bottom: 0;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #262626;
+    border-color: #000;
+    color: #fff;
+  }
+  .input-icon {
+    top: 0;
+    color: #fff;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-header-search {
+    margin-top: 15px;
+  }
+}

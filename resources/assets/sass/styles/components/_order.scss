@@ -1,0 +1,91 @@
+
+.order-payment-list > li {
+  padding: 10px 15px;
+  border-bottom: 1px dashed #ccc;
+  &:first-child {
+    border-top: 1px dashed #ccc;
+  }
+  h5, p {
+    margin-bottom: 0;
+  }
+  h5 .fa {
+    margin-right: 10px;
+  }
+  small {
+    margin-left: 35px;
+  }
+}
+
+.addional-offers {
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-top: 5px;
+  line-height: 1.4em;
+}
+
+.rounded {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+aside {
+  &.sidebar-right {
+    padding-left: 30px;
+    border-left: 1px solid #d4d4d4;
+  }
+  &.sidebar-left {
+    padding-right: 30px;
+    border-right: 1px solid #d4d4d4;
+  }
+}
+
+.sidebar-widget {
+  margin-bottom: 30px;
+}
+
+.list-category > li > a {
+  color: #686868;
+  margin-bottom: 7px;
+  padding-bottom: 7px;
+  display: block;
+  border-bottom: 1px dashed #f2f2f2;
+  &:hover {
+    color: #ed8323;
+  }
+}
+
+.address-list > li {
+  margin-bottom: 20px;
+  > h5 {
+    margin-bottom: 3px;
+  }
+}
+
+.tooltip-inner {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.logo-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 30px 0 0 30px;
+  display: block;
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity = 50);
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  > img {
+    width: auto;
+  }
+  &:hover {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}

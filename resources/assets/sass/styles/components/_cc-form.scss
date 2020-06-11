@@ -1,0 +1,66 @@
+.cc-form .form-group {
+  float: left;
+  &.form-group-cc-number, &.form-group-cc-name {
+    width: 60%;
+    margin-right: 5%;
+  }
+  &.form-group-cc-date, &.form-group-cc-cvc {
+    width: 25%;
+  }
+  &.form-group-cc-number {
+    .cc-card-icon {
+      display: block;
+      width: 41px;
+      height: 26px;
+      position: absolute;
+      right: 4px;
+      top: 34px;
+      background-repeat: no-repeat;
+      -webkit-background-size: 100% 100%;
+      -moz-background-size: 100% 100%;
+      background-size: 100% 100%;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -o-transition: 0.3s;
+      -ms-transition: 0.3s;
+      transition: 0.3s;
+      -webkit-transform: translate3d(0, -10px, 0);
+      -moz-transform: translate3d(0, -10px, 0);
+      -o-transform: translate3d(0, -10px, 0);
+      -ms-transform: translate3d(0, -10px, 0);
+      transform: translate3d(0, -10px, 0);
+    }
+    input {
+      &.identified + .cc-card-icon {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        -ms-filter: none;
+        filter: none;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -o-transition: 0.3s;
+        -ms-transition: 0.3s;
+        transition: 0.3s;
+      }
+      &.visa + .cc-card-icon {
+        background-image: url("../img/payment/visa-curved-32px.png");
+      }
+      &.mastercard + .cc-card-icon {
+        background-image: url("../img/payment/mastercard-curved-32px.png");
+      }
+      &.amex + .cc-card-icon {
+        background-image: url("../img/payment/american-express-curved-32px.png");
+      }
+      &.discover + .cc-card-icon {
+        background-image: url("../img/payment/discover-curved-32px.png");
+      }
+      &.maestro + .cc-card-icon {
+        background-image: url("../img/payment/maestro-curved-32px.png");
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "lion",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "select2": "^4.0.5",
+    "owl.carousel": "^2.3.4",
+    "vue": "^2.5.16",
+    "axios": "^0.18.0",
+    "gasparesganga-jquery-loading-overlay": "^2.1.3",
+    "jssocials": "^1.5.0",
+    "jquery-unveil": "^1.3.0",
+    "smartmenus": "^1.1.0"
+  }
+}

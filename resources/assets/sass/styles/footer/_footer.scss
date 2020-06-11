@@ -1,0 +1,98 @@
+footer#main-footer {
+  @include linear-gradient(135deg, $footer-bg-color, darken($footer-bg-color, 10%));
+  padding: 0;
+  color: #e6e6e6;
+  font-size: $footer-link-txt-size;
+  line-height: 1.4em;
+  border-top: 1px solid darken($top-bg, 2%);
+  .logo {
+    display: block;
+    img {
+      width: 100px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border:1px solid $top-bg;
+      background-color: #fff;
+    }
+  }
+  a, h1, h2, h3, h4, h5,p {
+    color: $footer-link-color;
+  }
+  .form-control {
+    background: #121212;
+    border-color: #000;
+    color: #fff;
+    &:focus {
+      border-color: #ed8323;
+    }
+  }
+  .footer-bottom {
+    padding: 20px 0 10px 0;
+    background-color: $footer-bottom-bg-color;
+    position: relative;
+    border-top: 1px solid darken($top-bg, 2%);
+    //&:after {
+    //  content: " ";
+    //  position: absolute;
+    //  width: 50%;
+    //  border-top: 30px solid transparent;
+    //  border-right: 25vw solid darken($default-theme-color, 20%);
+    //  top:-30px;
+    //  right: 0;
+    //}
+    @media (min-width: 991px) {
+      [class*="col"] {
+        padding: 0;
+      }
+    }
+    p {
+      font-size: 10px;
+      line-height: 16px;
+      color: $darkgray !important;
+    }
+  }
+  .social li a {
+    font-size: 1.2em;
+  }
+  .title {
+    color: $default-theme-color;
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+}
+
+.list-footer {
+  //&:before {
+  //  position: absolute;
+  //  left: 0;
+  //  background-color: gray;
+  //  content: '';
+  //  top:0;
+  //  width: 1px;
+  //  height: 100%;
+  //}
+  > li {
+    margin-bottom: 5px;
+    a {
+      position: relative;
+      padding-left: 15px;
+      text-decoration: none;
+      &:before {
+        content: "\f105";
+        font-family: "FontAwesome", sans-serif;
+        position: absolute;
+        font-size: 1.25em;
+        width: 30px;
+        height: 30px;
+        left:0;
+        top:0;
+        color: $default-theme-color;
+      }
+      @include transition(all .2s);
+    }
+    > a:hover {
+      text-decoration: none;
+      color: $default-theme-color !important;
+    }
+  }
+}

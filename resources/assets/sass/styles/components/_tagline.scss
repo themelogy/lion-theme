@@ -1,0 +1,125 @@
+.tagline {
+  font-size: 30px;
+  font-family: 'Roboto', arial, helvetica, sans-serif;
+  font-weight: 100;
+  color: #fff;
+  position: absolute;
+  line-height: 1em;
+  margin-top: 65px;
+  overflow: hidden;
+  height: 85px;
+  top: 0;
+  left: 0;
+  letter-spacing: -0.03em;
+  a {
+    color: $white;
+  }
+  > {
+    span {
+      float: left;
+      display: block;
+      height: 85px;
+      line-height: 85px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    ul {
+      height: 85px;
+      line-height: 85px;
+      position: relative;
+      top: 0;
+      display: block;
+      float: left;
+      -webkit-perspective: 1000px;
+      -moz-perspective: 1000px;
+      -ms-perspective: 1000px;
+      perspective: 1000px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 600px;
+      > li {
+        font-weight: 300;
+        position: absolute;
+        margin: 0;
+        padding-left: 0;
+        top: -85px;
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -o-transition: 0.5s;
+        -ms-transition: 0.5s;
+        transition: 0.5s;
+        -webkit-transform: rotateX(180deg);
+        -moz-transform: rotateX(180deg);
+        -o-transform: rotateX(180deg);
+        -ms-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+        -webkit-transform-origin: 25% 0;
+        -moz-transform-origin: 25% 0;
+        -o-transform-origin: 25% 0;
+        -ms-transform-origin: 25% 0;
+        transform-origin: 25% 0;
+        width: 100%;
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        filter: alpha(opacity = 0);
+        &.active {
+          top: 0;
+          opacity: 1;
+          -ms-filter: none;
+          filter: none;
+          -webkit-transform: rotateY(0deg);
+          -moz-transform: rotateY(0deg);
+          -o-transform: rotateY(0deg);
+          -ms-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+        }
+        &.vs-out {
+          top: 85px;
+          -webkit-transform: rotateX(-180deg);
+          -moz-transform: rotateX(-180deg);
+          -o-transform: rotateX(-180deg);
+          -ms-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+        }
+      }
+    }
+  }
+}
+
+.nav-side > li > a {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  color: #686868;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 17px;
+}
+
+.last-minute-rating {
+  color: #ed8323;
+  font-size: 20px;
+  .fa {
+    margin-right: 8px;
+  }
+}
+
+.last-minute-title {
+  font-size: 50px;
+  line-height: 1em;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.last-minute-date {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-style: italic;
+}
+
+::selection {
+  background: #ed8323;
+  color: #fff;
+}

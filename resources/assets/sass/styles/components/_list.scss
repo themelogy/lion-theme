@@ -1,0 +1,46 @@
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-center {
+  display: table;
+  margin: 0 auto;
+}
+
+.list-inline-block > li {
+  display: inline-block;
+}
+
+.list-horizontal > li, .list-inline > li {
+  float: left;
+  margin-right: 10px;
+  padding: 0;
+  display: block;
+}
+
+.list-horizontal > li:last-child, .list-inline > li:last-child {
+  margin-right: 0;
+}
+
+.list-horizontal.list-border > li, .list-inline.list-border > li {
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid rgba(0, 0, 0, 0.13);
+}
+
+.list-horizontal.list-border > li:last-child, .list-inline.list-border > li:last-child {
+  margin-right: 0;
+  padding-right: 0;
+  border: none;
+}
+
+.list-horizontal:after, .list-inline:after {
+  content: '.';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

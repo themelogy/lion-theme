@@ -1,0 +1,10 @@
+header#main-header {
+  border-bottom: 1px solid $header-border-color;
+  //background-color: $default-theme-color;
+  //@include gradient-horizontal($default-theme-color,$white,0%,30%);
+  &.fixed {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+  }
+}

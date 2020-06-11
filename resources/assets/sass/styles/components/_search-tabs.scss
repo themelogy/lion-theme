@@ -1,0 +1,135 @@
+
+.search-tabs > .tabbable > {
+  .tab-content > .tab-pane {
+    padding: 15px;
+  }
+  .nav-tabs > li > a {
+    text-transform: uppercase;
+  }
+}
+
+.search-tabs-abs {
+  position: absolute;
+  top: 0;
+  left: 14%;
+  width: 45%;
+}
+
+@media (max-width: 992px) {
+  .search-tabs-abs {
+    position: relative;
+    width: 100%;
+    left: 0;
+  }
+}
+
+.search-tabs-abs-bottom {
+  position: absolute;
+  top: 320px;
+}
+
+@media (max-width: 992px) {
+  .search-tabs-abs-bottom {
+    position: relative;
+    top: 0;
+    margin: 50px 0;
+  }
+}
+
+.search-tabs-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 25px;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .search-tabs-bottom {
+    position: relative;
+    bottom: auto;
+    top: 0;
+    margin-top: 50px;
+  }
+}
+
+.search-tabs-to-top {
+  position: relative;
+  z-index: 10;
+  margin-top: -120px;
+}
+
+.search-tabs-bg > {
+  h1,h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+  }
+  .tabbable > {
+    .tab-content > .tab-pane {
+      background: $white;
+      padding: 25px;
+      -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
+      .form-control {
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+    .nav-tabs {
+      border: none;
+      > li {
+        margin-bottom: 0;
+        margin-right: 5px;
+        > a {
+          background: rgba(0, 0, 0, 0.4);
+          border: none !important;
+          color: #fff;
+          &:hover > .fa {
+            background: #ed8323;
+            -webkit-transition: 0.3s;
+            -moz-transition: 0.3s;
+            -o-transition: 0.3s;
+            -ms-transition: 0.3s;
+            transition: 0.3s;
+          }
+          > .fa {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin-right: 2px;
+            background: rgba(0, 0, 0, 0.3);
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+            text-align: center;
+          }
+        }
+        &.active > a {
+          background: #ed8323;
+          color: #fff;
+          padding-top: 15px;
+          margin-top: -5px;
+          &:hover > .fa {
+            background: rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .search-tabs-bg > .tabbable > .nav-tabs > li > a > span {
+    display: none;
+  }
+}
+
+.search-tabs-nobox > .tabbable > .tab-content > .tab-pane {
+  padding: 25px 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.search-tabs-lift-top {
+  margin-top: -50px;
+}

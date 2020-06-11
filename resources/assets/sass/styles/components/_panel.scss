@@ -1,0 +1,28 @@
+
+.panel-default > .panel-heading {
+  background: #fff;
+  padding: 0;
+}
+
+.panel-group .panel {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.panel-title {
+  font-weight: 300;
+  > a {
+    display: block;
+    position: relative;
+    padding: 10px 15px;
+    background: #fff;
+    &:before {
+      font-family: 'FontAwesome';
+      content: '\f107';
+      position: absolute;
+      font-size: 16px;
+      top: 10px;
+      right: 15px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.twitter .tweet-list li {
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 25px;
+  &:before {
+    content: '\f099';
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.twitter-ticker .tweet-list {
+  height: 4.7em;
+  overflow-y: hidden;
+  li {
+    height: 4.7em;
+    line-height: 16px;
+  }
+}

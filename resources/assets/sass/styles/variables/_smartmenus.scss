@@ -1,0 +1,79 @@
+
+/*-----------------------------------------------------
+HEADER
+------------------------------------------------------*/
+/* bg colors */
+$header-bg-color                       : $white !default;
+$nav-bg-color                          : transparent !default;
+$nav-sub-bg-color                      : $white !default;
+$topbar-bg-color                       : $white !default;
+$topbar-lang-bg-color                  : $topbar-bg-color;
+
+/*navbar*/
+$nav-border-radius                     : 0 !default;
+$nav-link-color                        : $muted !default;
+$nav-link-hover-color                  : $default-theme-color !default;
+$nav-brand-txt-color                   : $muted;
+$nav-link-arrow-color                  : $muted;
+$nav-separator-size                    : 1px !default;
+$nav-separator-color                   : darken(white, 5%);
+$nav-padding-horizontal                : 10px !default;
+$nav-link-padding-horizontal           : 12px !default;
+$nav-link-padding-vertical             : 12px !default;
+$nav-vertical-border-radius            : 3px !default;
+$nav-vertical-padding                  : 10px !default;
+$nav-vertical-link-color               : $muted;
+$nav-vertical-link-padding-vertical    : 10px !default;
+$nav-vertical-link-padding-horizontal  : 20px !default;
+$nav-arrow-size                        : 4px !default;
+$nav-arrow-color                       : $muted !default;
+$nav-arrow-hover-color                 : $default-theme-color !default;
+$nav-arrow-spacing                     : 6px !default;
+
+/* navbar > sub */
+$nav-sub-border-color                  : darken(white, 10%) !default;
+$nav-sub-border-radius                 : 5px !default;
+$nav-sub-box-shadow                    : 0 5px 9px rgba(0, 0, 0, 0.2) !default;
+$nav-sub-padding-vertical              : 5px !default;
+$nav-sub-padding-horizontal            : 0 !default;
+$nav-sub-link-color                    : $muted !default;
+$nav-sub-link-hover-color              : $default-theme-color !default;
+$nav-sub-link-hover-bg-color           : $white !default;
+$nav-sub-link-active-color             : $nav-sub-link-hover-color;
+$nav-sub-link-padding-vertical         : 5px !default;
+$nav-sub-link-padding-horizontal       : 20px !default;
+$nav-sub-arrow-color                   : $muted !default;
+$nav-sub-arrow-hover-color             : $default-theme-color !default;
+$nav-sub-arrow-size                    : 5px !default;
+$nav-sub-caret-size                    : 5px !default;
+$nav-sub-caret-left                    : 30px !default;
+
+/* Navbar > Mobile */
+$nav-mobile-link-color                 : $nav-link-color;
+$nav-mobile-link-hover-color           : $nav-link-hover-color;
+$nav-mobile-link-padding-vertical      : 5px !default;
+$nav-mobile-link-padding-horizontal    : 5px !default;
+$nav-mobile-sub-bg-color               : darken(white, 5%) !default;
+$nav-mobile-sub-border-color           : $muted;
+$nav-mobile-link-separator-color       : rgba(0, 0, 0, 0.05) !default;
+
+/* Navbar > Mobile > Collapse */
+$nav-mobile-toggle-color               : $muted;
+$nav-mobile-toggle-bg-color            : rgba(200, 200, 200, 0.2) !default;
+$nav-mobile-toggle-padding             : .25em .25em;
+$nav-mobile-sub-border-color           : darken(white, 15%);
+$nav-mobile-sub-border-radius          : 5px;
+$nav-mobile-sub-indentation            : 8px !default;
+
+/* Topbar */
+$topbar-link-color                     : $muted !default;
+$topbar-link-hover-color               : $default-theme-color !default;
+$topbar-border-color                   : $default-theme-color !default;
+
+/* Topbar > Language */
+$topbar-lang-link-color                : $topbar-link-color;
+$topbar-lang-border                    : 1px solid darken($white, 10%);
+$topbar-lang-box-shadow                : $nav-sub-box-shadow;
+$topbar-lang-link-hover-bg-color       : #f8f9fa;
+$topbar-lang-link-hover-color          : #16181b;
+/* Home > Booking */

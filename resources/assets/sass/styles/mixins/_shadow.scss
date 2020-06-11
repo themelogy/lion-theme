@@ -1,0 +1,44 @@
+@mixin drop-shadow($offX: 2, $offY: 2, $blur: 2, $rgba: rgba(0, 0, 0, 0.3), $hex: #B2B2B2) {
+  -webkit-filter: drop-shadow(#{$offX}px #{$offY}px #{$blur}px $rgba);
+  -ms-filter    : "progid:DXImageTransform.Microsoft.Dropshadow(OffX=" + $offX + ", OffY=" + $offY + ", Color='" + $hex + "')";
+  filter        : "progid:DXImageTransform.Microsoft.Dropshadow(OffX=" + $offX + ", OffY=" + $offY + ", Color='" + $hex + "')";
+}
+
+@mixin box-shadow($top, $left, $blur, $color: rgba(0,0,0,0.25), $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin text-shadow($x: 0, $y: 0, $blur: 5px, $color: rgba(0,0,0,.4)) {
+  text-shadow: $x $y $blur $color;
+}
+
+@mixin shadow($color, $steps, $glow) {
+  $all: ();
+  $all: append($all, -1px 1px 0 rgba($color,.1), comma);
+  $all: append($all, 1px -1px 0 rgba($glow,.1), comma);
+  $all: append($all, 1px -1px 25px $glow, comma);
+  @for $i from 1 through $steps {
+    $all: append($all, append($i*-1px $i*1.9px $i*1px, rgba($color,2/$i)));
+  }
+  text-shadow: $all;
+}
+
+// Second mixin as I still have to figure out the direction parameters...
+@mixin shadow-alternate($color, $steps, $glow) {
+  $all: ();
+  $all: append($all, -1px -1px 0 rgba($color,.1), comma);
+  $all: append($all, 1px 1px 0 rgba($glow,.1), comma);
+  $all: append($all, 1px -1px 25px $glow, comma);
+  @for $i from 1 through $steps {
+    $all: append($all, append($i*-1px $i*-1.9px $i*1px, rgba($color,2/$i)));
+  }
+  text-shadow: $all;
+}

@@ -1,0 +1,42 @@
+.pagination {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+  font-size: 12px;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  > li {
+    display: block;
+    float: left;
+    min-width: 35px;
+    > a {
+      border: none;
+      color: #ed8323;
+      -webkit-border-radius: 0 !important;
+      border-radius: 0 !important;
+      -webkit-transition: 0.2s;
+      -moz-transition: 0.2s;
+      -o-transition: 0.2s;
+      -ms-transition: 0.2s;
+      transition: 0.2s;
+      &:hover {
+        background: #4d4d4d;
+        color: #fff;
+      }
+    }
+    &.active > a {
+      background: #ed8323;
+      &:hover {
+        background: #ed8323;
+      }
+    }
+    &.dots {
+      line-height: 16px;
+      text-align: center;
+      font-size: 30px;
+      color: #ccc;
+    }
+  }
+}
