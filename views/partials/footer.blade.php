@@ -6,16 +6,17 @@
                     <img src="{{ Theme::url('img/logo.svg') }}" alt="{{ setting('theme::company-name') }}" title="{{ setting('theme::company-name') }}" style="text-align: left;" />
                 </a>
                 @include('partials.components.socials', ['listClass'=>'list list-horizontal list-space social mb10 pull-left-lg', 'iconClass'=>'box-icon-normal round animate-icon-bottom-to-top'])
+
+                {{--<img src="{{ Theme::url('img/store-icons.png') }}" alt="App Store and Google Play" style="max-width: 200px;" />--}}
             </div>
             <div class="col-lg-3 col-sm-12 col-xs-12">
                 {!! Menu::render('corporate', \Themes\Lion\Presenter\FooterMenuLinksPresenter::class) !!}
             </div>
             <div class="col-lg-3 col-sm-12 col-xs-12">
-                {!! Menu::render('services-1', \Themes\Lion\Presenter\FooterMenuLinksPresenter::class) !!}
-                {!! Menu::render('services-2', \Themes\Lion\Presenter\FooterMenuLinksPresenter::class) !!}
+                {!! Menu::render('services', \Themes\Lion\Presenter\FooterMenuLinksPresenter::class) !!}
             </div>
             <div class="col-lg-3 col-sm-12 col-xs-12">
-                <img src="{{ Theme::url('img/store-icons.png') }}" alt="App Store and Google Play" style="max-width: 200px;" />
+                {!! Menu::render('products', \Themes\Lion\Presenter\FooterMenuLinksPresenter::class) !!}
             </div>
         </div>
         {{--<div class="row">--}}

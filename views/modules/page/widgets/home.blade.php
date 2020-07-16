@@ -12,7 +12,7 @@
                 <div class="thumb">
                     <header class="thumb-header">
                         <img class="img-responsive lazyloader" src="{{ $page->present()->coverImage(300,100,'fit',50) }}" alt="{{ $page->title }}" />
-                        <h4 class="thumb-title">{{ $page->title }}</h4>
+                        <h4 class="thumb-title"><i class="fa fa-angle-right"></i> {{ $page->title }}</h4>
                     </header>
                 </div>
                 </a>

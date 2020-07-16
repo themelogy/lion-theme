@@ -1,17 +1,17 @@
 footer#main-footer {
-  @include linear-gradient(135deg, $footer-bg-color, darken($footer-bg-color, 10%));
+  background-color: $footer-bg-color;
   padding: 0;
   color: #e6e6e6;
   font-size: $footer-link-txt-size;
   line-height: 1.4em;
-  border-top: 1px solid darken($top-bg, 2%);
+  border-top: 1px solid $footer-border-color;
   .logo {
     display: block;
     img {
-      width: 100px;
+      width: 120px;
       padding: 10px;
       margin-bottom: 20px;
-      border:1px solid $top-bg;
+      border:1px solid $border-color;
       background-color: #fff;
     }
   }
@@ -30,7 +30,7 @@ footer#main-footer {
     padding: 20px 0 10px 0;
     background-color: $footer-bottom-bg-color;
     position: relative;
-    border-top: 1px solid darken($top-bg, 2%);
+    border-top: 1px solid $footer-border-color;
     //&:after {
     //  content: " ";
     //  position: absolute;
@@ -52,7 +52,7 @@ footer#main-footer {
     }
   }
   .social li a {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
   .title {
     color: $default-theme-color;
@@ -77,15 +77,16 @@ footer#main-footer {
       position: relative;
       padding-left: 15px;
       text-decoration: none;
+      font-size: .9em;
       &:before {
         content: "\f105";
         font-family: "FontAwesome", sans-serif;
         position: absolute;
-        font-size: 1.25em;
+        font-size: 1.2em;
         width: 30px;
         height: 30px;
         left:0;
-        top:0;
+        top:-2px;
         color: $default-theme-color;
       }
       @include transition(all .2s);

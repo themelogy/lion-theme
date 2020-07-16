@@ -2,6 +2,7 @@
 
 return [
   'title' => [
-      'homepage' => 'Homepage'
+      'homepage' => 'Homepage',
+      'services' => 'Services'
   ]
 ];

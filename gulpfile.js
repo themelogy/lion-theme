@@ -175,7 +175,7 @@ gulp.task('vendor', function deployVendor() {
 });
 
 gulp.task('deploy', function deployTask() {
-    cleanTask().then(function(){
+    return cleanTask().then(function(){
         Promise.all([
             buildSass(),
             combineCSS(),

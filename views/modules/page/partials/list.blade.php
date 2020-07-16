@@ -38,7 +38,9 @@
         $hasImg  = $page->settings->show_image ?? false;
     @endphp
     @if($childs->count()>0)
+        @if($list->get('showContent'))
         <hr/>
+        @endif
         @foreach($childs->chunk($list->get('chunkSize')) as $chunks)
             <div class="row">
                 @foreach($chunks as $child)
@@ -57,7 +59,6 @@
                 @endforeach
             </div>
         @endforeach
-        <hr/>
         {!! $childs->links('partials.pagination') !!}
     @endif
 @endif

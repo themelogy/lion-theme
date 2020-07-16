@@ -32,7 +32,7 @@ $sm-clean__desktop-vp:									768px !default;		// switch from collapsible to de
 // ----------------------------------------------------------
 
 $sm-clean__font-family:									$default-theme-font !default;
-$sm-clean__font-size-base:								1em !default;
+$sm-clean__font-size-base:								$menu-font-size !default;
 $sm-clean__font-size-small:								1em !default;
 $sm-clean__line-height:									17px !default;
 
@@ -180,9 +180,10 @@ $sm-clean__toggle-spacing: floor($sm-clean__item-height * 0.1);
 			color: $sm-clean__collapsible-item-color;
 			font-family: $sm-clean__font-family;
 			font-size: $sm-clean__font-size-base;
-			font-weight: normal;
+			font-weight: $menu-font-weight;
 			line-height: $sm-clean__line-height;
 			text-decoration: none;
+			text-transform: uppercase;
 		}
 
 		&.current {
@@ -226,7 +227,8 @@ $sm-clean__toggle-spacing: floor($sm-clean__item-height * 0.1);
 
 	// Main menu items separators
 	li {
-		border-top: 1px solid $sm-clean__collapsible-separators-color;
+		//border-top: 1px solid $sm-clean__collapsible-separators-color;
+		//border-right: 1px solid $sm-clean__collapsible-separators-color;
 	}
 	> li:first-child {
 		border-top: 0;
@@ -279,8 +281,8 @@ $sm-clean__toggle-spacing: floor($sm-clean__item-height * 0.1);
 	// Main menu box
 	.sm-clean {
 		padding: 0 $sm-clean__desktop-padding-horizontal;
-		background: $sm-clean__desktop-bg;
-		border-radius: $sm-clean__desktop-border-radius;
+		//background: $sm-clean__desktop-bg;
+		//border-radius: $sm-clean__desktop-border-radius;
 
 		// Main menu items
 		a {

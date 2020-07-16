@@ -7,19 +7,57 @@
         <div class="panel-collapse collapse{{ $loop->first ? ' in' : '' }}" id="collapse-{{ $loop->iteration }}">
             <div class="panel-body">
                 <div class="item">
-                    <address title="{{ $location->name }}">
-                        {{ $location->present()->address }}<br/>
-                        @if($location->phone1)
-                            <abbr title="Telefon">T:</abbr><a href="tel:{{ $location->phone1 }}">{{ $location->phone1 }}</a><br/>
-                        @endif
-                        @if($location->phone2)
-                            <abbr title="Telefon">T:</abbr><a href="tel:{{ $location->phone2 }}">{{ $location->phone2 }}</a><br/>
-                        @endisset
-                        @if($location->fax)
-                            <abbr title="Faks">F:</abbr><a href="fax:{{ $location->fax }}">{{ $location->fax }}</a>
-                        @endif
-                        <div class="mt20 google-map" style="width:100%; height: 150px;" id="map{{ $location->id }}"></div>
-                    </address>
+                    @if($img = $location->present()->firstImage(800,600,'fit',80))
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img class="img-responsive img-thumbnail" src="{{ $img }}" alt="{{ $location->name }}" />
+                            </div>
+                            <div class="col-md-8">
+                                <address title="{{ $location->name }}" class="address">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <p>{{ $location->present()->address }}</p>
+                                            @if($location->phone1)
+                                                <abbr title="Telefon">TEL:</abbr><a href="tel:{{ $location->phone1 }}">{{ $location->phone1 }}</a><br/>
+                                            @endif
+                                            @if($location->phone2)
+                                                <abbr title="Telefon">TEL:</abbr><a href="tel:{{ $location->phone2 }}">{{ $location->phone2 }}</a><br/>
+                                            @endisset
+                                            @if($location->fax)
+                                                <abbr title="Faks">FAKS:</abbr><a href="fax:{{ $location->fax }}">{{ $location->fax }}</a>
+                                            @endif
+                                        </div>
+                                        <div class="col-md-3">
+                                            <a href="#" class="btn btn-default pull-right-lg m-top-10"><i class="fa fa-map-marker"></i> YOL TARİFİ AL</a>
+                                        </div>
+                                    </div>
+                                    <div class="mt20 google-map" style="width:100%; height: 185px;" id="map{{ $location->id }}"></div>
+                                </address>
+                            </div>
+                        </div>
+                    @else
+                        <address title="{{ $location->name }}" class="address">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <p>{{ $location->present()->address }}</p>
+                                    @if($location->phone1)
+                                        <abbr title="Telefon">TEL:</abbr><a href="tel:{{ $location->phone1 }}">{{ $location->phone1 }}</a><br/>
+                                    @endif
+                                    @if($location->phone2)
+                                        <abbr title="Telefon">TEL:</abbr><a href="tel:{{ $location->phone2 }}">{{ $location->phone2 }}</a><br/>
+                                    @endisset
+                                    @if($location->fax)
+                                        <abbr title="Faks">FAKS:</abbr><a href="fax:{{ $location->fax }}">{{ $location->fax }}</a>
+                                    @endif
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#" class="btn btn-default pull-right-lg m-top-10"><i class="fa fa-map-marker"></i> YOL TARİFİ AL</a>
+                                </div>
+                            </div>
+                            <div class="mt20 google-map" style="width:100%; height: 185px;" id="map{{ $location->id }}"></div>
+                        </address>
+                    @endif
+
                 </div>
             </div>
         </div>

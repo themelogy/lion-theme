@@ -1,5 +1,5 @@
 <div class="top-user-area clearfix">
-    <ul class="top-user-area-list list list-horizontal list-border socials">
+    <ul class="top-user-area-list list list-horizontal list-border">
         <li>
             <div class="top-link">
                 <a href="#"><i class="fa fa-credit-card mr5"></i> <span class="hidden-xs">ONLINE ÖDE</span></a>
@@ -25,13 +25,13 @@
             <li><a href="{{ LaravelLocalization::getLocalizedURL(locale(), route('logout')) }}">Çıkış</a></li>
         @endauth
         <li class="top-user-area-lang nav-drop">
-            <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="{{ LaravelLocalization::getLocalizedURL(locale(), route('homepage')) }}">
+            <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                 <strong>{{ mb_strtoupper(LaravelLocalization::getCurrentLocaleNative()) }}</strong><i class="fa fa-angle-down"></i><i class="fa fa-angle-up"></i>
             </a>
             <ul class="list nav-drop-menu">
                 @foreach(LaravelLocalization::getSupportedLocales() as $locale => $supportedLocale)
                     <li>
-                        <a href="{{ LaravelLocalization::getLocalizedURL($locale, route('homepage')) }}">
+                        <a href="{{ url($locale) }}">
                             <span>{{ mb_strtoupper($supportedLocale['native']) }}</span>
                         </a>
                     </li>

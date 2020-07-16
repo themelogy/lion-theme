@@ -13,5 +13,5 @@ return [
         'title' => 'Kategori'
     ],
     'announcement'  => 'Duyurular',
-    'latest news'   => 'Son Haberler'
+    'latest news'   => 'Bizden Haberler'
 ];

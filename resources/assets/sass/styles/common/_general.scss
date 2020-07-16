@@ -15,11 +15,12 @@ body {
   font-size: 14px;
   line-height: 1.6em;
   font-weight: normal;
+  background-color: #F6F7F9;
 }
 
 a {
   color: #ed8323;
-  text-decoration: none;
+  text-decoration: none !important;
   &:hover {
     color: #c96810;
     text-decoration: none;

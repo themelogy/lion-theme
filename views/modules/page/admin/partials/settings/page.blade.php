@@ -11,7 +11,15 @@
             {!! Form::normalSelect("settings[full_page]", "Tam Sayfa Göster", $errors, [0=>'Hayır', 1=>'Evet'], isset($page->settings->full_page) ? $page->settings->full_page : 0) !!}
         </div>
         <div class="col-md-3">
-            {!! Form::normalSelect("settings[show_content]", "İçerik Göster", $errors, [0=>'Hayır', 1=>'Evet'], isset($page->settings->show_content) ? $page->settings->show_content : 0) !!}
+            {!! Form::normalSelect("settings[show_content]", "Menüyle İçerik Göster", $errors, [0=>'Hayır', 1=>'Evet'], isset($page->settings->show_content) ? $page->settings->show_content : 0) !!}
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" style="margin-right: 10px;">
+                <label>
+                    {!! Form::checkbox("settings[has_content]", 1, old('settings.has_content', isset($page->settings->has_content) ? $page->settings->has_content : 0), ['class'=>'flat-blue']) !!}
+                    &nbsp; İçerik Göster
+                </label>
+            </div>
         </div>
     </fieldset>
 </div>

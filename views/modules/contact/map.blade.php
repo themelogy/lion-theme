@@ -1,4 +1,4 @@
-<div id="map-canvas" style="height:300px; border-top: 1px solid #ebebeb;"></div>
+<div id="map-canvas" style="height:300px; margin: 10px 0; border: 2px dotted #ebebeb;"></div>
 @push('js-inline')
     <script>
         function initMap() {
@@ -18,7 +18,7 @@
                 position: center,
                 map: map,
                 title: "{{ setting('theme::company-name') }}",
-                icon: "{{ Theme::url('img/logo/marker.svg') }}"
+                icon: "{{ Theme::url('img/marker.png') }}"
             });
 
             marker.addListener('click', function () {
@@ -28,3 +28,5 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpvcV4WyemrP7OUfrDuXTkEaazIzwqe1U&callback=initMap&language={{ locale() }}"></script>
 @endpush
+
+<a href="#" class="btn btn-default m-top-10"><i class="fa fa-map-marker"></i> YOL TARİFİ AL</a>

@@ -9,7 +9,13 @@
         <div class="row" data-gutter="120">
             <div class="col-md-6 r-line-lg">
                 <h2>{{ setting('theme::company-name') }}</h2>
-                @locations('accordion')
+                <address>
+                    {{ setting("theme::address") }}<br/>
+                    <abbr title="Telefon">T:</abbr><a href="tel:@setting('theme::phone')">@setting('theme::phone')</a><br/>
+                    <abbr title="Faks">F:</abbr><a href="tel:@setting('theme::fax')">@setting('theme::fax')</a><br/>
+
+                    @includeIf('contact::map')
+                </address>
             </div>
             <div class="col-md-6">
                 @include('contact::form')

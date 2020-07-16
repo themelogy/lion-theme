@@ -40,9 +40,9 @@
       padding: 10px;
       background-color: white;
       z-index: 9999 !important;
-      @include box-shadow(0,2px,1px,rgba($logo-border-color, 0.25));
-      @include border-radius(5px);
-      //border: 2px solid lighten($logo-border-color, 50%);
+      //@include box-shadow(0,2px,1px,rgba($logo-border-color, 0.25));
+      //@include border-radius(5px);
+      border: 1px solid $logo-border-color;
       //&:before {
       //  content: " ";
       //  width: 85%;
@@ -141,26 +141,6 @@
   }
 }
 
-.top-user-area {
-  .socials {
-    li a {
-      color: $top-social-link-color;
-      &:hover {
-        color: $top-social-link-hover;
-      }
-    }
-  }
-  .top-socials {
-    font-size: 1.3em !important;
-  }
-}
-
-.top-socials {
-  i {
-    font-size: 1.3em;
-  }
-}
-
 .select2-container {
   width: 100% !important;
 }
@@ -203,8 +183,8 @@
 .page-title {
   padding: 20px 0 10px 0 !important;
   margin: 0 !important;
-  //background-color: $default-theme-color;
-  @include gradient-horizontal($default-theme-color, darken($default-theme-color, 20%));
+  background-color: darken($default-theme-color, 5%);
+  //@include gradient-horizontal($default-theme-color, darken($default-theme-color, 20%));
   .title {
     color: $white;
     font-weight: 300;
@@ -487,17 +467,32 @@
 .top-link {
   text-align: right;
   a {
-    font-weight: 500 !important;
-    font-size: 1.1em;
-    letter-spacing: -0.02em;
+    font-weight: $top-font-weight;
+    font-size: $top-font-size;
+    letter-spacing: $top-letter-spacing;
+    color: $top-link-color !important;
     i {
-      color: $default-theme-color;
+      //background-color: $top-link-color;
+      color: $top-link-color;
+      padding: 5px;
+      font-size: 1em;
+      border: 1px solid $top-link-color;
+      @include border-radius(20px);
+    }
+    &:hover {
+      color: $top-link-hover-color !important;
+      i {
+        color: $top-link-hover-color;
+        border-color: $top-link-hover-color;
+      }
     }
   }
 }
 
 .slogans-home {
-  @include gradient-horizontal($default-theme-color, darken($default-theme-color, 20%));
+  //@include gradient-horizontal($default-theme-color, darken($default-theme-color, 20%));
+  background-color: $footer-bg-color;
+  border-bottom: 1px solid $border-color;
   position: relative;
   //&::after {
   //  content: "";
@@ -513,52 +508,59 @@
       margin-top: -100px;
     }
     //border: 1px solid $gray;
-    @include box-shadow(0, 5px, 20px, rgba(black, 0.5));
     @include transition(all .5s ease-in-out);
-    @include border-radius(10px);
+    @include border-radius(5px);
+    border: 2px solid $footer-bg-color;
     &:hover {
       transform: scale(1.05);
+      //@include box-shadow(0, 5px, 20px, rgba(black, 0.5));
     }
     .thumb-header {
       position: relative;
       z-index: 1;
       margin-bottom: 0;
       img {
-        filter: grayscale(70%);
+        filter: grayscale(100%) contrast(120%);
         border: none;
         width: 100% !important;
-        @include border-radius(10px);
+        @include border-radius(5px);
       }
       i {
-        border: 2px solid $black;
-        color: $black;
-        @include border-radius(5px);
-        &:hover {
-          background-color: $black;
-          color: $default-theme-color !important;
-        }
+        //border: 2px solid $black;
+        color: $white;
+        font-size: 1.4em;
+        margin-right: 5px;
+        //@include border-radius(5px);
+        text-shadow: 1px 2px 1px rgba(0,0,0,.5);
+        //&:hover {
+        //  background-color: $black;
+        //  color: $default-theme-color !important;
+        //}
       }
       h4 {
         position: absolute;
         bottom: 20px;
         left: 20px;
-        font-size: 1.3em;
+        font-size: 1.3em !important;
         z-index: 9999;
-        font-weight: 500;
-        text-shadow: 1px 2px 1px $black;
-        letter-spacing: -0.03em;
+        font-weight: 500 !important;
+        text-shadow: 1px 2px 1px rgba(0,0,0,.5);
+        letter-spacing: 0.05em;
       }
       &:before {
         content: " ";
         position: absolute;
         width: 100%;
+        height: 100%;
         display: block;
         left: 0;
         bottom: 0;
         z-index: 10;
-        border-top: 100px solid transparent;
-        border-left: 240px solid rgba(darken($default-theme-color, 10%), 0.5);
-        @include border-radius(0 0 0 0);
+        //border-top: 120px solid transparent;
+        //border-left: 120px solid rgba(darken($default-theme-color, 10%), 0.5);
+        //@include gradient-horizontal(rgba($default-theme-color, .7), transparent);
+        background-color: rgba($default-theme-color, .25);
+        @include border-radius(5px);
       }
       //&:after {
       //  content: " ";
@@ -891,20 +893,102 @@
 .widget_categories {
   .list-group {
     .list-group-item {
-      background-color: $default-theme-color;
-      border-color: lighten($default-theme-color, 10%);
+      border-color: darken($white, 10%);
       &:hover {
-        background-color: $white;
-        transform: scale(1.03);
+        background-color: $default-theme-color;
+        //transform: scale(1.03);
         a {
-          color: $default-theme-color;
+          color: $white;
         }
       }
       a {
-        color: $white;
+        color:  $default-theme-color;
         display: block;
+        font-weight: 500;
+        font-size: .9em;
+        text-transform: uppercase;
         @include transition(all ease .2s);
       }
     }
+  }
+}
+
+.brand {
+  @include box-shadow(0,0,5px,rgba(0,0,0,.05));
+  padding: 0;
+  border:1px solid darken(white, 5%);
+  //@include border-radius(2px);
+  a {
+    min-height: 100px;
+    display: block;
+    position: relative;
+    img {
+      padding: 30px;
+      width: auto;
+      vertical-align: middle;
+      position: absolute;
+      top:0;
+      bottom: 0;
+      margin: auto;
+      left:0;
+      right:0;
+    }
+  }
+  .caption {
+    padding: 0;
+    border-top: 1px solid darken(white, 5%);
+    h5 {
+      text-align: center;
+      margin: 0;
+      color: gray;
+      font-size: 1.1em;
+      font-weight: 500 !important;
+      padding: 5px 0;
+    }
+  }
+  @include transition(all .2s ease);
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+.page-content {
+  a {
+    text-decoration: none;
+  }
+  .thumbnail {
+    .caption {
+      h5 {
+        font-size: 1.3em;
+        font-weight: 500;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.top-user-area-lang {
+  a {
+    color: $default-txt-color !important;
+    &:hover {
+      color: $default-theme-color !important;
+    }
+  }
+}
+
+.top-user-area {
+  .top-socials {
+    font-size: 1.3em !important;
+  }
+}
+
+.top-socials {
+  li a {
+    color: $top-social-link-color;
+    &:hover {
+      color: $top-social-link-hover;
+    }
+  }
+  i {
+    font-size: 1.3em;
   }
 }

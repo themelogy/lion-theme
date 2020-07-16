@@ -6,7 +6,7 @@ div.nav-drop {
 .nav-drop {
   position: relative;
   padding-right: 23px !important;
-  ///border:1px solid darken(white, 10%);
+  border:1px solid $border-color;
   .fa-angle-up, .fa-angle-down {
     position: absolute;
     right: 8px;
@@ -52,6 +52,7 @@ div.nav-drop {
     list-style: none;
     margin: 0;
     padding: 0;
+    border:1px solid $border-color;
     > li {
       > a {
         background: $nav-drop-bg-color;

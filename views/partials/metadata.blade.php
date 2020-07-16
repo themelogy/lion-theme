@@ -4,9 +4,9 @@
 <script async>
     WebFontConfig = { google: {
             families: [
-                'Roboto::latin-ext',
-                'Open Sans::latin-ext',
-                'Roboto Condensed:latin-ext'
+                'Roboto:300,400,500,700,900:latin-ext',
+                'Open Sans:300,400,500,700,900:latin-ext',
+                'Roboto Condensed:300,400,500,700,900:latin-ext'
             ]
         }};
     (function(d) {
