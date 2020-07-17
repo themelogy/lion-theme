@@ -21,6 +21,14 @@
                 </label>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="form-group" style="margin-right: 10px;">
+                <label>
+                    {!! Form::checkbox("settings[first_content]", 1, old('settings.first_content', isset($page->settings->first_content) ? $page->settings->first_content : 0), ['class'=>'flat-blue']) !!}
+                    &nbsp; İlk İçerik Göster
+                </label>
+            </div>
+        </div>
     </fieldset>
 </div>
 

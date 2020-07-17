@@ -7,7 +7,7 @@
         'position'      => $page->settings->image_position ?? null,
         'show_gallery'  => $page->settings->show_gallery ?? false,
         'show_image'    => $page->settings->show_image ?? false,
-        'class'         => ['img-thumbnail', 'lazyloader'],
+        'class'         => ['', 'lazyloader'],
         'images'        => null,
         'image'         => null
     ];
@@ -35,10 +35,10 @@
 
     $html = "";
     if($img->show_gallery && $img->images) {
-        $html .= '<div class="gallery '.$img->class->except(0)->implode(' ').'" style="width:'.$img->width.'px;">';
-        $html .= '<div class="owl-carousel owl-theme owl-auto" data-items="1">';
+        $html .= '<div class="gallery '.$img->class->except(0)->implode(' ').'">';
+        $html .= '<div class="owl-carousel owl-theme owl-auto" data-items="5">';
         foreach ($img->images as $image) {
-            $html .= '<div class="item">';
+            $html .= '<div class="thumbnail brand" style="padding:20px;">';
             $html .= Html::image($image, $page->title, ['class'=>$img->class->implode(' ')]);
             $html .= '</div>';
         }

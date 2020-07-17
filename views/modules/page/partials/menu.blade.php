@@ -1,11 +1,15 @@
 <div class="row">
     <div class="col-md-9">
-        @include('page::partials.image')
-        {!! $slot ?? '' !!}
+        @if(@$page->settings->first_content)
+            {!! $page->children()->first()->body !!}
+        @else
+            @include('page::partials.image')
+            {!! $slot ?? '' !!}
+        @endif
     </div>
     <div class="col-md-3">
-        @isset($page->parent)
-            @pageChildren($page->parent, 'menu')
+        @if($page)
+            @parentMenu($page, 'menu', 20)
         @endisset
 
         @includeWhen($page && ($page->settings->show_doc ?? false),'page::partials.doc')

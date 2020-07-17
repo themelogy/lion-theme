@@ -215,5 +215,5 @@ blockquote {
 @import "forms";
 
 .border-t-1 {
-  border-top: 1px solid darken($white, 10%);
+  border-top: 1px solid $border-color;
 }

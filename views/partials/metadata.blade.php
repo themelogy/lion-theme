@@ -23,7 +23,7 @@
     {!! Theme::style('css/icomoon.css') !!}
     {!! Theme::style('css/styles.css') !!}
 @else
-    {!! Theme::style('css/style.min.css') !!}
+    {!! Theme::style('css/style.min.css?v=17') !!}
 @endif
 
 <!--[if lt IE 9]>

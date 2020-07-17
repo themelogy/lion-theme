@@ -29,4 +29,4 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpvcV4WyemrP7OUfrDuXTkEaazIzwqe1U&callback=initMap&language={{ locale() }}"></script>
 @endpush
 
-<a href="#" class="btn btn-default m-top-10"><i class="fa fa-map-marker"></i> YOL TARİFİ AL</a>
+<a href="https://www.google.com/maps/dir/Current+Location/{{ setting('contact::contact-map-lat').','.setting('contact::contact-map-lng') }}" class="btn btn-default m-top-10" target="_blank"><i class="fa fa-map-marker"></i> YOL TARİFİ AL</a>

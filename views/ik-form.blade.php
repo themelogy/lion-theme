@@ -1,128 +1,136 @@
 @extends('layouts.master')
 
 @section('content')
-
-    @component('partials.components.title', ['breadcrumb'=>'hr.application.form'])
-        <h1 class="title">{{ trans('hr::applications.title.application') }}</h1>
+    @component('partials.components.title', ['breadcrumbs'=>'page', 'image' => $page->present()->coverImage(1280,250,'fit',80)])
+        <h1 class="title">{{ $page->title }}</h1>
     @endcomponent
 
-    <section class="page-content mb20" id="app">
-        <div class="container">
-            <div class="page-wrapper">
-                <div class="content-wrapper">
-                    <div class="section-padding md-p-top-bot-50 section-page" id="app">
-                        <div class="container">
-                            {!! Form::open(['v-on:submit'=>'submitForm', 'files'=>true, 'method'=>'post']) !!}
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!-- Kişisel Bilgiler -->
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <div class="form-group" :class="{ 'has-error' : formErrors.first_name }">
-                                                <label class="browser-default">{{ trans('hr::applications.form.first_name') }}</label>
-                                                <input class="form-control" id="first_name" type="text"
-                                                       placeholder="{{ trans('hr::applications.form.first_name') }}"
-                                                       v-model="application.first_name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group" :class="{ 'has-error' : formErrors.last_name }">
-                                                <label>{{ trans('hr::applications.form.last_name') }}</label>
-                                                <input class="form-control" id="last_name" type="text"
-                                                       placeholder="{{ trans('hr::applications.form.last_name') }}"
-                                                       v-model="application.last_name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group" :class="{ 'has-error' : formErrors['contact.gsm'] }">
-                                                <label>{{ trans('hr::applications.form.contacts.gsm') }}</label>
-                                                <input class="form-control" type="text"
-                                                       placeholder="{{ trans('hr::applications.form.contacts.gsm') }}"
-                                                       v-model="application.contact.gsm">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group" :class="{ 'has-error' : formErrors['contact.email'] }">
-                                                <label>{{ trans('hr::applications.form.contacts.email') }}</label>
-                                                <input class="form-control" type="text"
-                                                       placeholder="{{ trans('hr::applications.form.contacts.email') }}"
-                                                       v-model="application.contact.email">
-                                            </div>
+    <div class="page-content mb20">
+        <div class="container txt-lg">
+
+            <div class="row">
+                <div class="col-md-9">
+                    <section class="page-content mb20" id="app">
+                        {!! Form::open(['v-on:submit'=>'submitForm', 'files'=>true, 'method'=>'post']) !!}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- Kişisel Bilgiler -->
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group" :class="{ 'has-error' : formErrors.first_name }">
+                                            <label class="browser-default">{{ trans('hr::applications.form.first_name') }}</label>
+                                            <input class="form-control" id="first_name" type="text"
+                                                   placeholder="{{ trans('hr::applications.form.first_name') }}"
+                                                   v-model="application.first_name">
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-8">
-                                            <div class="form-group"
-                                                 :class="{ 'has-error' : formErrors['contact.address1'] }">
-                                                <label>{{ trans('hr::applications.form.contacts.address1') }}</label>
-                                                <input class="form-control" type="text"
-                                                       placeholder="{{ trans('hr::applications.form.contacts.address1') }}"
-                                                       v-model="application.contact.address1">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group" :class="{ 'has-error' : formErrors['contact.county'] }">
-                                                <label>{{ trans('hr::applications.form.contacts.county') }}</label>
-                                                <input class="form-control" type="text"
-                                                       placeholder="{{ trans('hr::applications.form.contacts.county') }}"
-                                                       v-model="application.contact.county">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group" :class="{ 'has-error' : formErrors['contact.city'] }">
-                                                <label>{{ trans('hr::applications.form.contacts.city') }}</label>
-                                                <select class="form-control select"
-                                                        v-model="application.contact.city">
-                                                    @foreach(HrInformation::city()->lists() as $key => $city)
-                                                        <option value="{{ $key }}">{{ $city }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group" :class="{ 'has-error' : formErrors.last_name }">
+                                            <label>{{ trans('hr::applications.form.last_name') }}</label>
+                                            <input class="form-control" id="last_name" type="text"
+                                                   placeholder="{{ trans('hr::applications.form.last_name') }}"
+                                                   v-model="application.last_name">
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="fileinput fileinput-new" data-provides="fileinput" :class="{ 'has-error' : formErrors['application.attachment'] }">
+                                    <div class="col-md-3">
+                                        <div class="form-group" :class="{ 'has-error' : formErrors['contact.gsm'] }">
+                                            <label>{{ trans('hr::applications.form.contacts.gsm') }}</label>
+                                            <input class="form-control" type="text"
+                                                   placeholder="{{ trans('hr::applications.form.contacts.gsm') }}"
+                                                   v-model="application.contact.gsm">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group" :class="{ 'has-error' : formErrors['contact.email'] }">
+                                            <label>{{ trans('hr::applications.form.contacts.email') }}</label>
+                                            <input class="form-control" type="text"
+                                                   placeholder="{{ trans('hr::applications.form.contacts.email') }}"
+                                                   v-model="application.contact.email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group"
+                                             :class="{ 'has-error' : formErrors['contact.address1'] }">
+                                            <label>{{ trans('hr::applications.form.contacts.address1') }}</label>
+                                            <input class="form-control" type="text"
+                                                   placeholder="{{ trans('hr::applications.form.contacts.address1') }}"
+                                                   v-model="application.contact.address1">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group" :class="{ 'has-error' : formErrors['contact.county'] }">
+                                            <label>{{ trans('hr::applications.form.contacts.county') }}</label>
+                                            <input class="form-control" type="text"
+                                                   placeholder="{{ trans('hr::applications.form.contacts.county') }}"
+                                                   v-model="application.contact.county">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group" :class="{ 'has-error' : formErrors['contact.city'] }">
+                                            <label>{{ trans('hr::applications.form.contacts.city') }}</label>
+                                            <select class="form-control select"
+                                                    v-model="application.contact.city">
+                                                @foreach(HrInformation::city()->lists() as $key => $city)
+                                                    <option value="{{ $key }}">{{ $city }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput" :class="{ 'has-error' : formErrors['application.attachment'] }">
                                 <span class="btn btn-warning btn-file" v-show="!application.attachment">
                                     <span>{{ trans('hr::applications.form.attachment') }}</span>
                                     <input id="attachment" type="file" name="attachment" @change="onFileChange" />
                                 </span>
-                                                <button class="btn btn-danger" @click="removeFile" v-show="application.attachment">{{ trans('hr::applications.form.attachment delete') }}</button>
-                                                <span class="fileinput-filename" v-show="application.attachment"></span>
-                                                <span class="fileinput-new"> {{ trans('hr::applications.form.attachment not found') }}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr/>
-                                    <!-- Save Button -->
-                                    <div class="row">
-                                        <div class="col-md-12 m-top-bot-20">
-                                            <p class="font-12">{{ trans('hr::applications.messages.notice') }}</p>
-                                        </div>
-                                    </div>
-                                    @if(!setting('hr::user-login'))
-                                        <div class="row">
-                                            <div class="col-md-12 m-top-bot-20">
-                                                {!! Captcha::image('captcha_hr') !!}
-                                            </div>
-                                        </div>
-                                    @endif
-                                    <hr/>
-                                    <div class="row">
-                                        <div class="col-md-12 m-top-20">
-                                            {!! Form::submit(trans('hr::applications.buttons.create'), ['class'=>'btn btn-primary', 'v-bind:value'=>'button']) !!}
+                                            <button class="btn btn-danger" @click="removeFile" v-show="application.attachment">{{ trans('hr::applications.form.attachment delete') }}</button>
+                                            <span class="fileinput-filename" v-show="application.attachment"></span>
+                                            <span class="fileinput-new"> {{ trans('hr::applications.form.attachment not found') }}</span>
                                         </div>
                                     </div>
                                 </div>
+                                <hr/>
+                                <!-- Save Button -->
+                                <div class="row">
+                                    <div class="col-md-12 m-top-bot-20">
+                                        <p class="font-12">{{ trans('hr::applications.messages.notice') }}</p>
+                                    </div>
+                                </div>
+                                @if(!setting('hr::user-login'))
+                                    <div class="row">
+                                        <div class="col-md-12 m-top-bot-20">
+                                            {!! Captcha::image('captcha_hr') !!}
+                                        </div>
+                                    </div>
+                                @endif
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-12 m-top-20">
+                                        {!! Form::submit(trans('hr::applications.buttons.create'), ['class'=>'btn btn-primary', 'v-bind:value'=>'button']) !!}
+                                    </div>
+                                </div>
                             </div>
-                            {!! Form::close() !!}
                         </div>
-                    </div>
+                        {!! Form::close() !!}
+                    </section>
+                </div>
+                <div class="col-md-3">
+                    @if($page)
+                        @parentMenu($page, 'menu', 20)
+                    @endisset
+
+                    @includeWhen($page && ($page->settings->show_doc ?? false),'page::partials.doc')
+                    @includeWhen($page && ($page->settings->video ?? false), 'page::partials.video')
                 </div>
             </div>
         </div>
-    </section>
-@endsection
+    </div>
+@stop
+
+
 
 @push('js-stack')
     <script src="{!! Module::asset('hr:js/underscore-min.js') !!}"></script>

@@ -9,13 +9,17 @@
 
                 {{--<img src="{{ Theme::url('img/store-icons.png') }}" alt="App Store and Google Play" style="max-width: 200px;" />--}}
             </div>
+            @inject("menuService", "Modules\Menu\Services\MenuService")
             <div class="col-lg-3 col-sm-12 col-xs-12">
+                <h5>{{ $menuService->title('corporate') }}</h5>
                 {!! Menu::render('corporate', \Themes\Lion\Presenter\FooterMenuLinksPresenter::class) !!}
             </div>
             <div class="col-lg-3 col-sm-12 col-xs-12">
+                <h5>{{ $menuService->title('services') }}</h5>
                 {!! Menu::render('services', \Themes\Lion\Presenter\FooterMenuLinksPresenter::class) !!}
             </div>
             <div class="col-lg-3 col-sm-12 col-xs-12">
+                <h5>{{ $menuService->title('products') }}</h5>
                 {!! Menu::render('products', \Themes\Lion\Presenter\FooterMenuLinksPresenter::class) !!}
             </div>
         </div>

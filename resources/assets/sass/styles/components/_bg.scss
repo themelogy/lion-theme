@@ -9,7 +9,7 @@
 }
 
 .bg-darken {
-  background: #f2f2f2;
+  background: darken($topbar-bg-color, 1%);
 }
 
 .bg-color {

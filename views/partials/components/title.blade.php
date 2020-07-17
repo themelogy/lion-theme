@@ -12,5 +12,5 @@
 @endisset
 
 @if(@$image)
-<div class="page-cover" style="background: url({{ $image }}) no-repeat center center; background-size: cover; height: 250px;"></div>
+<div class="page-cover" style="background: url({{ $image }}) no-repeat center center; background-size: cover; height: 250px; margin-bottom: 10px;"></div>
 @endif

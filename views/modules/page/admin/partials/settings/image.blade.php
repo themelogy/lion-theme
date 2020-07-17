@@ -22,6 +22,12 @@
                         &nbsp; Resimleri Galeri olarak göster
                     </label>
                 </div>
+                <div class="form-group" style="margin-right: 10px;">
+                    <label>
+                        {!! Form::checkbox("settings[show_slide]", 1, old('settings.show_slide', isset($page->settings->show_slide) ? $page->settings->show_slide : null), ['class'=>'flat-blue']) !!}
+                        &nbsp; Resimleri Slayt olarak göster
+                    </label>
+                </div>
             </div><br/>
             <hr/>
             <div class="col-md-12 form-inline">
@@ -42,7 +48,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group{{ $errors->has("settings.image_width") ? ' has-error' : '' }}">
-                            {!! Form::input('text', 'settings[image_width]', !isset($page->settings->image_width) ? 400 : $page->settings->image_width, ['class'=>'form-control', 'placeholder'=>'Resim Genişliği']) !!}
+                            {!! Form::input('text', 'settings[image_width]', !isset($page->settings->image_width) ? null : $page->settings->image_width, ['class'=>'form-control', 'placeholder'=>'Resim Genişliği']) !!}
                             {!! $errors->first("settings.image_width", '<span class="help-block">:message</span>') !!}
                         </div>
                     </div>

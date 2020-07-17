@@ -31,11 +31,11 @@
 
 @if($list->get('listPage'))
     @php
-        $width   = $page->settings->image_width ?? 400;
-        $height  = $page->settings->image_height ?? null;
-        $mode    = $page->settings->image_mode ?? 'resize';
+        $width   = $page->settings->image_width ?? 600;
+        $height  = $page->settings->image_height ?? 200;
+        $mode    = $page->settings->image_mode ?? 'fit';
         $quality = $page->settings->image_quality ?? 80;
-        $hasImg  = $page->settings->show_image ?? false;
+        $hasImg  = $page->settings->show_cover ?? false;
     @endphp
     @if($childs->count()>0)
         @if($list->get('showContent'))
@@ -48,7 +48,7 @@
                         <div class="thumbnail">
                             <a href="{{ $child->url }}">
                                 @if(($image = $child->present()->firstImage($width,$height,$mode,$quality)) && $hasImg)
-                                    <img src="{{ $image }}" alt="{{ $child->title }}" />
+                                    <img style="width: 100%;" class="img-responsive" src="{{ $image }}" alt="{{ $child->title }}" />
                                 @endif
                                 <div class="caption">
                                     <h5>{{ $child->title }}</h5>

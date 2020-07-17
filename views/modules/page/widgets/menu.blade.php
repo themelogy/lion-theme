@@ -3,7 +3,7 @@
         @foreach($children as $child)
             <li class="list-group-item">
                 @if(collect(Request::segments())->search($child->slug))
-                    <a href="{{ $child->url }}">{{ $child->title }}</a>
+                    <a class="active" href="{{ $child->url }}">{{ $child->title }}</a>
                 @else
                     <a href="{{ $child->url }}">{{ $child->title }}</a>
                 @endif

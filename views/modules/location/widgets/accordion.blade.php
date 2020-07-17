@@ -28,7 +28,7 @@
                                             @endif
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="#" class="btn btn-default pull-right-lg m-top-10"><i class="fa fa-map-marker"></i> YOL TARİFİ AL</a>
+                                            <a href="https://www.google.com/maps/dir/Current+Location/{{ $location->lat.','.$location->long }}" class="btn btn-default pull-right-lg m-top-10" target="_blank"><i class="fa fa-map-marker"></i> YOL TARİFİ AL</a>
                                         </div>
                                     </div>
                                     <div class="mt20 google-map" style="width:100%; height: 185px;" id="map{{ $location->id }}"></div>
@@ -51,7 +51,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="#" class="btn btn-default pull-right-lg m-top-10"><i class="fa fa-map-marker"></i> YOL TARİFİ AL</a>
+                                    <a href="https://www.google.com/maps/dir/Current+Location/{{ $location->lat.','.$location->long }}" class="btn btn-default pull-right-lg m-top-10" target="_blank"><i class="fa fa-map-marker"></i> YOL TARİFİ AL</a>
                                 </div>
                             </div>
                             <div class="mt20 google-map" style="width:100%; height: 185px;" id="map{{ $location->id }}"></div>

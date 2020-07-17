@@ -7,11 +7,11 @@
             @foreach($pages as $page)
                 <a href="{{ $page->url }}">
                     <div class="project-item item-shadow building">
-                        <img alt="Cubes Ankara" class="img-responsive" src="{{ $page->present()->firstImage(426,579,'fit',80) }}">
+                        <img alt="{{ $page->title }}" class="img-responsive" src="{{ $page->present()->firstImage(426,579,'fit',80) }}">
                         <div class="project-hover">
                             <div class="project-hover-content">
                                 <h3 class="project-title">
-                                    {!! wordwrap($page->title, 1, '<br/>') !!}
+                                    {!! $page->title !!}
                                 </h3>
                                 <p class="project-description">{{ \Str::words(strip_tags($page->body), 15) }}</p>
                             </div>

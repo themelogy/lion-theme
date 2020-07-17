@@ -18,6 +18,14 @@ footer#main-footer {
   a, h1, h2, h3, h4, h5,p {
     color: $footer-link-color;
   }
+  h5 {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    @media screen and (max-width: 1198px) {
+      margin-top: 10px;
+    }
+  }
   .form-control {
     background: #121212;
     border-color: #000;
