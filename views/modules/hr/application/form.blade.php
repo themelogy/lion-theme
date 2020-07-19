@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @component('partials.components.title', ['breadcrumb'=>'hr.application.form'])
+    @component('partials.components.title', ['breadcrumbs'=>'hr.application.form'])
         <h1 class="title">{{ trans('hr::applications.title.application') }}</h1>
     @endcomponent
 

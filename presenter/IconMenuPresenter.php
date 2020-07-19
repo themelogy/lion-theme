@@ -2,14 +2,14 @@
 
 use Nwidart\Menus\Presenters\Presenter;
 
-class TopMenuPresenter extends Presenter
+class IconMenuPresenter extends Presenter
 {
     /**
      * {@inheritdoc }.
      */
     public function getOpenTagWrapper()
     {
-        return PHP_EOL.''.PHP_EOL;
+        return PHP_EOL.'<ul class="footer-box">'.PHP_EOL;
     }
 
     /**
@@ -17,7 +17,7 @@ class TopMenuPresenter extends Presenter
      */
     public function getCloseTagWrapper()
     {
-        return PHP_EOL.''.PHP_EOL;
+        return PHP_EOL.'</ul>'.PHP_EOL;
     }
 
     public function getCloseMegaTagWrapper()
@@ -49,7 +49,7 @@ class TopMenuPresenter extends Presenter
      */
     public function getMenuWithoutDropdownWrapper($item)
     {
-        return '<li'.$this->getActiveState($item).' class="'.$item->attributes['class'].'"><div class="top-link"><a href="'.$item->getUrl().'" '.$item->getAttributes().'>'.$item->getIcon().' <span class="hidden-xs">'.$item->title.'</span></a></div></li>'.PHP_EOL;
+        return '<li'.$this->getActiveState($item).' class="'.$item->attributes['class'].'"><a href="'.$item->getUrl().'" '.$item->getAttributes().'>'.$item->getIcon().' <span>'.$item->title.'</span></a></li>'.PHP_EOL;
     }
 
     /**

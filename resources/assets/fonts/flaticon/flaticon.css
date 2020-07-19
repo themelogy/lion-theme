@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 16/07/2020 20:56
+  	Creation date: 17/07/2020 22:05
   	*/
 
 @font-face {
@@ -34,3 +34,26 @@ margin-left: 20px;
 .flaticon-deal:before { content: "\f101"; }
 .flaticon-fuel:before { content: "\f102"; }
 .flaticon-campaign:before { content: "\f103"; }
+.flaticon-gas:before { content: "\f104"; }
+.flaticon-job-search:before { content: "\f105"; }
+.flaticon-complaint:before { content: "\f106"; }
+.flaticon-pro:before { content: "\f107"; }
+.flaticon-recommendation:before { content: "\f108"; }
+.flaticon-phone-book:before { content: "\f109"; }
+.flaticon-department:before { content: "\f10a"; }
+.flaticon-department-1:before { content: "\f10b"; }
+.flaticon-head:before { content: "\f10c"; }
+.flaticon-idea:before { content: "\f10d"; }
+.flaticon-brain:before { content: "\f10e"; }
+.flaticon-user-images:before { content: "\f10f"; }
+.flaticon-best-employee:before { content: "\f110"; }
+.flaticon-credit-card:before { content: "\f111"; }
+.flaticon-video-player:before { content: "\f112"; }
+.flaticon-video-conference:before { content: "\f113"; }
+.flaticon-video-tutorials:before { content: "\f114"; }
+.flaticon-webinar:before { content: "\f115"; }
+.flaticon-gallery:before { content: "\f116"; }
+.flaticon-news:before { content: "\f117"; }
+.flaticon-newspaper:before { content: "\f118"; }
+.flaticon-news-1:before { content: "\f119"; }
+.flaticon-newspaper-1:before { content: "\f11a"; }

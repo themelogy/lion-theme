@@ -22,6 +22,7 @@ footer#main-footer {
     font-size: 1.1em;
     text-transform: uppercase;
     font-weight: 500;
+    color: $default-theme-color;
     @media screen and (max-width: 1198px) {
       margin-top: 10px;
     }
@@ -43,9 +44,9 @@ footer#main-footer {
     //  content: " ";
     //  position: absolute;
     //  width: 50%;
-    //  border-top: 30px solid transparent;
-    //  border-right: 25vw solid darken($default-theme-color, 20%);
-    //  top:-30px;
+    //  border-top: 400px solid transparent;
+    //  border-right: 25vw solid $border-color;
+    //  top:-400px;
     //  right: 0;
     //}
     @media (min-width: 991px) {
@@ -102,6 +103,70 @@ footer#main-footer {
     > a:hover {
       text-decoration: none;
       color: $default-theme-color !important;
+    }
+  }
+}
+
+
+.footer-icon {
+  text-align: center;
+  background-color: lighten($footer-bg-color, .75%);
+  border-top: 2px solid $border-color;
+  border-bottom: 2px solid $white;
+  position: relative;
+  z-index: 5;
+  .footer-box {
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      list-style: none;
+      padding: 25px 10px;
+      text-align: center;
+      min-width: 160px;
+      min-height: 160px;
+      position: relative;
+      @media screen and (min-width: 1265px) {
+        border-right: 1px solid $border-color;
+        &:first-child {
+          border-left: 1px solid $border-color;
+        }
+        //@include transition(all .2s ease);
+        //&:hover {
+        //  transform: scale(1.1);
+        //}
+      }
+      a {
+        &:hover span {
+          color: $default-theme-color !important;
+        }
+        &:hover {
+          i {
+            //background-color: $default-theme-color;
+            //color: $white;
+          }
+        }
+      }
+      i {
+        font-size: 3em !important;
+        margin: 0 0 10px 0;
+        display: inline-block;
+        text-align: center;
+        border: 1px solid $default-theme-color;
+        border-radius: 100px;
+        padding: 15px;
+        color: $default-theme-color;
+        background-color: $white;
+        @include transition(all .2s ease-in);
+      }
+      span {
+        display: block;
+        text-transform: uppercase;
+        font-size: .9em;
+        font-weight: 500;
+        color: $default-txt-color;
+        letter-spacing: -0.01em;
+      }
     }
   }
 }

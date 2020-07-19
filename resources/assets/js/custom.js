@@ -225,6 +225,43 @@ function tagline_vertical_slide() {
     nextTag.addClass("active");
 }
 
+// Lighbox gallery
+$('#popup-gallery').each(function() {
+    $(this).magnificPopup({
+        delegate: 'a.popup-gallery-image',
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+    });
+});
+
+// Lighbox image
+$('.popup-image').magnificPopup({
+    type: 'image'
+});
+
+// Lighbox text
+$('.popup-text').magnificPopup({
+    removalDelay: 500,
+    closeBtnInside: true,
+    callbacks: {
+        beforeOpen: function() {
+            this.st.mainClass = this.st.el.attr('data-effect');
+        }
+    },
+    midClick: true
+});
+
+// Lightbox iframe
+$('.popup-iframe').magnificPopup({
+    dispableOn: 700,
+    type: 'iframe',
+    removalDelay: 160,
+    mainClass: 'mfp-fade',
+    preloader: false
+});
+
 var loadDeferredStyles = function() {
     var addStylesNode = document.getElementById("deferred-styles");
     var replacement = document.createElement("div");

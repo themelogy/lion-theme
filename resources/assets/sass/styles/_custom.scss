@@ -197,7 +197,7 @@
 }
 
 .page-content {
-  padding: 20px 0;
+  padding: 30px 0;
 }
 
 .blog-posts {
@@ -845,8 +845,8 @@
   .thumbnail {
     .caption {
       h5 {
-        font-size: 1.3em;
-        font-weight: 500;
+        font-size: 1.1em;
+        font-weight: 400;
         margin: 0;
       }
     }
@@ -882,4 +882,17 @@
 
 .page-cover {
   position: relative;
+}
+
+.post-wrapper {
+  &.press {
+    border:1px solid $border-color;
+    margin-bottom: 20px;
+    h2 {
+      padding-top: 10px;
+    }
+    h5 {
+      font-size: 1em;
+    }
+  }
 }

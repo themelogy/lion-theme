@@ -1,15 +1,6 @@
 <div class="top-user-area clearfix">
     <ul class="top-user-area-list list list-horizontal list-border">
-        <li>
-            <div class="top-link">
-                <a href="#"><i class="fa fa-credit-card mr5"></i> <span class="hidden-xs">ONLINE ÖDE</span></a>
-            </div>
-        </li>
-        <li>
-            <div class="top-link">
-                <a href="#"><i class="fa fa-car mr5"></i> <span class="hidden-xs">TAŞIT TANIMA SİSTEMİ</span></a>
-            </div>
-        </li>
+        {!! Menu::render('top', \Themes\Lion\Presenter\TopMenuPresenter::class) !!}
         <li>
             @include('partials.components.socials', ['listClass'=>'list list-horizontal list-space top-socials', 'iconClass'=>''])
         </li>

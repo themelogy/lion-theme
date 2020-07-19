@@ -1,3 +1,6 @@
+<div class="container-fluid footer-icon">
+    {!! Menu::render('shortcuts', \Themes\Lion\Presenter\IconMenuPresenter::class) !!}
+</div>
 <footer id="main-footer" class="footer2">
     <div class="container">
         <div class="row pb20">
@@ -32,7 +35,7 @@
         <div class="container">
             <div class="col-lg-8 col-sm-12">
                 <div class="footer-bottom-links" style="float:left;">
-                    {!! Menu::render('footer', \Themes\Zirve\Presenter\FooterMenuPresenter::class) !!}
+                    {!! Menu::render('footer', \Themes\Lion\Presenter\FooterMenuPresenter::class) !!}
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12">

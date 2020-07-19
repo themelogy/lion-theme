@@ -15,34 +15,80 @@
   font-style: normal;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: "Flaticon";
-    src: url("../fonts/flaticon/Flaticon.svg#Flaticon") format("svg");
-  }
-}
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      @font-face {
+        font-family: "Flaticon";
+        src: url("./Flaticon.svg#Flaticon") format("svg");
+      }
+    }
 
     .fi:before{
-        display: inline-block;
-  font-family: "Flaticon";
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  line-height: 1;
-  text-decoration: inherit;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
+      display: inline-block;
+      font-family: "Flaticon";
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      line-height: 1;
+      text-decoration: inherit;
+      text-rendering: optimizeLegibility;
+      text-transform: none;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
     }
 
     .flaticon-partnership-handshake:before { content: "\f100"; }
-.flaticon-deal:before { content: "\f101"; }
-.flaticon-fuel:before { content: "\f102"; }
-.flaticon-campaign:before { content: "\f103"; }
+    .flaticon-deal:before { content: "\f101"; }
+    .flaticon-fuel:before { content: "\f102"; }
+    .flaticon-campaign:before { content: "\f103"; }
+    .flaticon-gas:before { content: "\f104"; }
+    .flaticon-job-search:before { content: "\f105"; }
+    .flaticon-complaint:before { content: "\f106"; }
+    .flaticon-pro:before { content: "\f107"; }
+    .flaticon-recommendation:before { content: "\f108"; }
+    .flaticon-phone-book:before { content: "\f109"; }
+    .flaticon-department:before { content: "\f10a"; }
+    .flaticon-department-1:before { content: "\f10b"; }
+    .flaticon-head:before { content: "\f10c"; }
+    .flaticon-idea:before { content: "\f10d"; }
+    .flaticon-brain:before { content: "\f10e"; }
+    .flaticon-user-images:before { content: "\f10f"; }
+    .flaticon-best-employee:before { content: "\f110"; }
+    .flaticon-credit-card:before { content: "\f111"; }
+    .flaticon-video-player:before { content: "\f112"; }
+    .flaticon-video-conference:before { content: "\f113"; }
+    .flaticon-video-tutorials:before { content: "\f114"; }
+    .flaticon-webinar:before { content: "\f115"; }
+    .flaticon-gallery:before { content: "\f116"; }
+    .flaticon-news:before { content: "\f117"; }
+    .flaticon-newspaper:before { content: "\f118"; }
+    .flaticon-news-1:before { content: "\f119"; }
+    .flaticon-newspaper-1:before { content: "\f11a"; }
 
     $font-Flaticon-partnership-handshake: "\f100";
     $font-Flaticon-deal: "\f101";
     $font-Flaticon-fuel: "\f102";
     $font-Flaticon-campaign: "\f103";
+    $font-Flaticon-gas: "\f104";
+    $font-Flaticon-job-search: "\f105";
+    $font-Flaticon-complaint: "\f106";
+    $font-Flaticon-pro: "\f107";
+    $font-Flaticon-recommendation: "\f108";
+    $font-Flaticon-phone-book: "\f109";
+    $font-Flaticon-department: "\f10a";
+    $font-Flaticon-department-1: "\f10b";
+    $font-Flaticon-head: "\f10c";
+    $font-Flaticon-idea: "\f10d";
+    $font-Flaticon-brain: "\f10e";
+    $font-Flaticon-user-images: "\f10f";
+    $font-Flaticon-best-employee: "\f110";
+    $font-Flaticon-credit-card: "\f111";
+    $font-Flaticon-video-player: "\f112";
+    $font-Flaticon-video-conference: "\f113";
+    $font-Flaticon-video-tutorials: "\f114";
+    $font-Flaticon-webinar: "\f115";
+    $font-Flaticon-gallery: "\f116";
+    $font-Flaticon-news: "\f117";
+    $font-Flaticon-newspaper: "\f118";
+    $font-Flaticon-news-1: "\f119";
+    $font-Flaticon-newspaper-1: "\f11a";

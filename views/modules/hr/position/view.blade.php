@@ -2,10 +2,10 @@
 
 @section('content')
     @component('partials.components.title', ['breadcrumb'=>'hr.position.view'])
-    {{ $position->name }} - {{ $position->reference_no }}
+        <h1 class="title">{{ $position->name }} - {{ $position->reference_no }}</h1>
     @endcomponent
 
-    <section class="pt20 pb20 section-page">
+    <section class="section-page pt20 pb20 hr-position">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -68,7 +68,7 @@
                             </table>
                         </div>
                     </div>
-                    <a class="btn btn-primary waves-effect waves-light" href="{{ route('hr.application.form', ['position_id'=>$position->id]) }}">Başvuru Yap</a>
+                    <a class="btn btn-primary waves-effect waves-light" href="{{ route('hr.application.form', ['position_id'=>$position->id]) }}">@lang('hr::applications.buttons.create')</a>
                 </div>
             </div>
         </div>

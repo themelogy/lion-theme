@@ -227,7 +227,7 @@ $sm-clean__toggle-spacing: floor($sm-clean__item-height * 0.1);
 
 	// Main menu items separators
 	li {
-		//border-top: 1px solid $sm-clean__collapsible-separators-color;
+		border-top: 1px solid $sm-clean__collapsible-separators-color;
 		//border-right: 1px solid $sm-clean__collapsible-separators-color;
 	}
 	> li:first-child {

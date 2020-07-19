@@ -4,5 +4,5 @@ return [
   'title' => [
       'homepage' => 'Anasayfa',
       'services' => 'Hizmetlerimiz'
-  ]
+  ],
 ];

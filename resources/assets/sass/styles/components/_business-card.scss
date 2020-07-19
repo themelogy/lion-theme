@@ -1,0 +1,38 @@
+.business-card {
+  border: 1px solid $border-color;
+  overflow: hidden;
+  margin-bottom: 30px;
+  @include border-radius(5px);
+  padding: 20px;
+  .user {
+    float: left;
+    i {
+      font-size: 4em !important;
+      display: inline-block;
+      text-align: center;
+      border: 1px solid $default-theme-color;
+      border-radius: 100px;
+      padding: 15px;
+      min-width: 90px;
+      min-height: 90px;
+      color: $default-theme-color;
+      background-color: $white;
+      @include transition(all .2s ease-in);
+    }
+  }
+  ul {
+    float: left;
+    padding: 0 0 0 15px;
+    margin: 0;
+    li {
+      list-style-type: none;
+      h4 {
+        font-size: 1.7em;
+        margin-bottom: 0;
+      }
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+}

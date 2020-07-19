@@ -51,6 +51,8 @@
 
 @endphp
 
+@includeIf('page::partials.video')
+
 {!! $html !!}
 
 

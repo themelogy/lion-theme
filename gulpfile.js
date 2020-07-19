@@ -136,6 +136,7 @@ function minifyVendors(dest='') {
         resource.asset.js + '/bootstrap.js',
         resource.asset.js + '/dropit.js',
         resource.asset.js + '/icheck.js',
+        resource.asset.js + '/magnific.js',
         resource.asset.vendor + '/jquery-unveil/jquery.unveil.min.js',
         resource.asset.vendor + '/smartmenus/dist/jquery.smartmenus.js'
     ])
