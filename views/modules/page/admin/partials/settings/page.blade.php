@@ -49,3 +49,15 @@
         </div>
     </fieldset>
 </div>
+
+
+<div class="row">
+    <fieldset>
+        <legend>İçerik Ayarları</legend>
+        <div class="col-md-3">
+            @if($newsCategories = app(\Modules\News\Repositories\CategoryRepository::class)->all()->pluck('name', 'slug')->toArray())
+            {!! Form::normalSelect("settings[news_category]", "Haber Kategorisi", $errors, [null => 'Seçiniz']+$newsCategories, isset($page->settings->news_category) ? $page->settings->news_category : null) !!}
+            @endif
+        </div>
+    </fieldset>
+</div>

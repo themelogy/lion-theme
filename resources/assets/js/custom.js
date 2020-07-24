@@ -126,7 +126,7 @@ $(document).ready(
                 navigationText: ['', ''],
                 itemsDesktop : [1199,owlItems],
                 itemsDesktopSmall : [991,owlTablet],
-                itemsTablet: [768,owlTablet],
+                itemsTablet: [768,owlMobile],
                 itemsTabletSmall: false,
                 itemsMobile : [479,owlMobile]
             });

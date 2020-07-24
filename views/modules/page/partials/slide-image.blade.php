@@ -27,7 +27,7 @@
         $img->class->push('pull-right ml20 mb20');
         break;
         default:
-        $img->class->push('mb20');
+        $img->class->push('lazyload');
     }
 
     $img->images = $img->show_gallery ? $page->present()->images($img->width, $img->height, $img->mode, $img->quality) : null;
@@ -35,11 +35,13 @@
 
     $html = "";
     if($img->show_gallery && $img->images) {
-        $html .= '<div class="gallery '.$img->class->except(0)->implode(' ').'">';
-        $html .= '<div class="owl-carousel owl-theme owl-auto" data-items="5">';
+        $html .= '<div class="gallery '.$img->class->except(0)->implode(' ').'" style="margin-bottom:20px;" id="popup-gallery">';
+        $html .= '<div class="owl-carousel owl-theme owl-auto" data-items="'.$page->settings->slide_items.'" data-items-mobile="1" data-items-tablet="2">';
         foreach ($img->images as $image) {
-            $html .= '<div class="thumbnail brand" style="padding:20px;">';
-            $html .= Html::image($image, $page->title, ['class'=>$img->class->implode(' ')]);
+            $html .= '<div class="thumbnail brand" style="padding:5px;">';
+            $html .= '<a class="hover-img popup-gallery-image" href="'.$image.'" data-effect="mfp-zoom-out" style="margin:0; padding:0;">';
+            $html .= Html::image($image, $page->title, ['class'=>$img->class->implode(' '), 'style'=>'padding:0; position: unset;']);
+            $html .= '</a>';
             $html .= '</div>';
         }
         $html .= '</div>';
@@ -52,6 +54,8 @@
 @endphp
 
 {!! $html !!}
+
+@includeIf('page::partials.video')
 
 
 

@@ -1,8 +1,8 @@
-@extends('blog::layouts.master')
+@extends('news::layouts.master')
 
-@section('blog content')
-    @component('partials.components.title', ['breadcrumbs'=>'blog.tag'])
-        <h1 class="title">{{ trans('blog::post.title.tag', ['tag'=>$tag->name]) }}</h1>
+@section('news content')
+    @component('partials.components.title', ['breadcrumbs'=>'news.tag'])
+        <h1 class="title">{{ trans('news::post.title.tag', ['tag'=>$tag->name]) }}</h1>
     @endcomponent
     <div class="container mt30">
         <div class="row">
@@ -24,7 +24,7 @@
                                             <li><i class="fa fa-calendar"></i> <a href="#">{{ $post->created_at->formatLocalized('%d %B %Y') }}</a></li>
                                             <li><i class="fa fa-user"></i> <a href="{{ $post->present()->authorUrl }}">{{ $post->author->fullname }}</a></li>
                                         </ul>
-                                        <p class="post-desciption">{!! ucfirst(str_sentence(Str::replaceFirst('araç kiralama', $tag->name.' ', strip_tags(strtolower(html_entity_decode($post->intro)))), 1)) !!}</p><a class="btn btn-xs btn-default" href="{{ $post->url }}">{{ trans('global.buttons.read more') }}</a>
+                                        <p class="post-desciption">{!! ucfirst(str_sentence(Str::replaceFirst('akaryakıt', $tag->name.' ', strip_tags(strtolower(html_entity_decode($post->intro)))), 1)) !!}</p><a class="btn btn-xs btn-default" href="{{ $post->url }}">{{ trans('global.buttons.read more') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -32,10 +32,10 @@
                     </div>
                 @endforeach
                 @unset($post)
-                {!! $posts->links('blog::pagination.default') !!}
+                {!! $posts->links('news::pagination.default') !!}
             </div>
             <div class="col-md-4">
-                @include('blog::partials.sidebar', ['share'=>true])
+                @include('news::partials.sidebar', ['share'=>true])
             </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
 @extends('blog::layouts.master')
 
 @section('blog content')
-    @component('partials.components.title', ['breadcrumbs'=>'blog'])
-        <h1 class="title">{{ trans('themes::blog.title') }}</h1>
+    @component('partials.components.title', ['breadcrumbs'=>'news'])
+        <h1 class="title">{{ trans('themes::news.title') }}</h1>
     @endcomponent
     <div class="container mt30">
         <div class="row">
@@ -11,16 +11,16 @@
                     <div class="row">
                     @foreach($chunk as $post)
                         <div class="col-md-6">
-                        @include('blog::partials._post')
+                        @include('news::partials._post')
                         </div>
                     @endforeach
                     </div>
                 @endforeach
                 @unset($post)
-                {!! $posts->links('blog::pagination.default') !!}
+                {!! $posts->links('news::pagination.default') !!}
             </div>
             <div class="col-md-4">
-                @include('blog::partials.sidebar', ['share'=>true])
+                @include('news::partials.sidebar', ['share'=>true])
             </div>
         </div>
     </div>

@@ -38,6 +38,10 @@
         $hasImg  = $page->settings->show_cover ?? false;
     @endphp
     @if($childs->count()>0)
+        @if($page->settings->show_menu)
+        <div class="row">
+            <div class="col-md-9">
+        @endif
         @if($list->get('showContent'))
         <hr/>
         @endif
@@ -60,5 +64,17 @@
             </div>
         @endforeach
         {!! $childs->links('partials.pagination') !!}
+                @if($page->settings->show_menu)
+            </div>
+            <div class="col-md-3">
+                @if($page)
+                    @parentMenu($page, 'menu', 20)
+                @endisset
+
+                @includeWhen($page && ($page->settings->show_doc ?? false),'page::partials.doc')
+                @includeWhen($page && ($page->settings->video ?? false), 'page::partials.video')
+            </div>
+        </div>
+            @endif
     @endif
 @endif

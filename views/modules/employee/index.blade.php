@@ -12,28 +12,7 @@
                     @foreach($employees->chunk(2) as $chunks)
                     <div class="row">
                         @foreach($chunks as $employee)
-                        <div class="col-md-6">
-                            <div class="business-card">
-                                <div class="user">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                <ul>
-                                    <li><h4>{{ $employee->fullname }}</h4></li>
-                                    @if($employee->position)
-                                    <li>{{ $employee->position }}</li>
-                                    @endif
-                                    @if($employee->mobile)
-                                    <li><span>@lang('themes::employee.fields.mobile')</span> {{ $employee->mobile }}</li>
-                                    @endif
-                                    @if($employee->phone)
-                                        <li><span>@lang('themes::employee.fields.phone')</span> <a href="tel:{{ $employee->phone }}">{{ $employee->phone }}</a></li>
-                                    @endif
-                                    @if($employee->email)
-                                    <li><span>@lang('themes::employee.fields.email')</span> <a href="mailto:{!! Html::email($employee->email) !!}">{!! Html::email($employee->email) !!}</a></li>
-                                    @endif
-                                </ul>
-                            </div>
-                        </div>
+                            @includeIf('employee::partials._card')
                         @endforeach
                     </div>
                     @endforeach

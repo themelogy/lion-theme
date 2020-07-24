@@ -1,7 +1,7 @@
 @component('mail::layout')
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            <img style="text-align: center; padding: 10px; max-height: 70px;" src="{{ url('themes/zirve/img/logo/logo-w.png') }}" alt="{{ setting('core::site-name') }}" />
+            {{ setting('core::site-name') }}
         @endcomponent
     @endslot
 

@@ -13,7 +13,11 @@
             @elseif($page && ($page->settings->list_page ?? false))
                 @include('page::partials.list')
             @elseif($page && !($page->settings->list_page ?? false) && !($page->parent->settings->show_menu ?? false))
-                @include('page::partials.image')
+                @if($page->settings->show_slide)
+                    @include('page::partials.slide-image')
+                @else
+                    @include('page::partials.image')
+                @endif
             @endif
 
             @pageTags($page, 10)

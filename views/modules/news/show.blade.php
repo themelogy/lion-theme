@@ -1,7 +1,7 @@
 @extends('news::layouts.master')
 
 @section('news content')
-    @component('partials.components.title', ['breadcrumbs'=>'blog.show'])
+    @component('partials.components.title', ['breadcrumbs'=>'news.show'])
         <h1 class="title">{{ $post->title }}</h1>
     @endcomponent
     <div class="container mt30">

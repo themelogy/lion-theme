@@ -17,6 +17,9 @@
 
 @include('partials.scripts')
 
+@if(isset($page))
+    @popup($page->template)
+@endif
 </body>
 
 </html>

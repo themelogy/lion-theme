@@ -3,7 +3,11 @@
         @if(@$page->settings->first_content)
             {!! $page->children()->first()->body !!}
         @else
-            @include('page::partials.image')
+            @if(@$page->settings->show_slide)
+                @include('page::partials.slide-image')
+            @else
+                @include('page::partials.image')
+            @endif
             {!! $slot ?? '' !!}
         @endif
     </div>

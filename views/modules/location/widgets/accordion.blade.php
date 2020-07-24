@@ -18,17 +18,17 @@
                                         <div class="col-md-9">
                                             <p>{{ $location->present()->address }}</p>
                                             @if($location->phone1)
-                                                <abbr title="Telefon">TEL:</abbr><a href="tel:{{ $location->phone1 }}">{{ $location->phone1 }}</a><br/>
+                                                <abbr title="Telefon"><i class="fa fa-phone"></i></abbr><a href="tel:{{ $location->phone1 }}">{{ $location->phone1 }}</a><br/>
                                             @endif
                                             @if($location->phone2)
-                                                <abbr title="Telefon">TEL:</abbr><a href="tel:{{ $location->phone2 }}">{{ $location->phone2 }}</a><br/>
+                                                <abbr title="Telefon"><i class="fa fa-phone"></i></abbr><a href="tel:{{ $location->phone2 }}">{{ $location->phone2 }}</a><br/>
                                             @endisset
                                             @if($location->fax)
-                                                <abbr title="Faks">FAKS:</abbr><a href="fax:{{ $location->fax }}">{{ $location->fax }}</a>
+                                                <abbr title="Faks"><i class="fa fa-fax"></i></abbr><a href="fax:{{ $location->fax }}">{{ $location->fax }}</a>
                                             @endif
                                         </div>
                                         <div class="col-md-3">
-                                            <a href="https://www.google.com/maps/dir/Current+Location/{{ $location->lat.','.$location->long }}" class="btn btn-default pull-right-lg m-top-10" target="_blank"><i class="fa fa-map-marker"></i> YOL TARİFİ AL</a>
+                                            <a href="https://www.google.com/maps/dir/Current+Location/{{ $location->lat.','.$location->long }}" class="btn btn-default pull-right-lg m-top-10" target="_blank"><i class="fa fa-map-marker"></i> @lang('themes::contact.direction us')</a>
                                         </div>
                                     </div>
                                     <div class="mt20 google-map" style="width:100%; height: 185px;" id="map{{ $location->id }}"></div>

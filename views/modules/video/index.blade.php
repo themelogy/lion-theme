@@ -5,7 +5,7 @@
         <h1 class="title">@lang('themes::video.meta.title')</h1>
     @endcomponent
 
-    <div class="page-content mb20">
+    <div class="page-content mb20 video">
         <div class="container txt-lg">
             <div class="row">
                 <div class="col-md-9">

@@ -42,6 +42,10 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="form-group{{ $errors->has("settings.slide_items") ? ' has-error' : '' }}" style="margin-left: 10px;">
+                    {!! Form::input('text', 'settings[slide_items]', !isset($page->settings->slide_items) ? null : $page->settings->slide_items, ['class'=>'form-control', 'placeholder'=>'Slayt Resim Adedi']) !!}
+                    {!! $errors->first("settings.slide_items", '<span class="help-block">:message</span>') !!}
+                </div>
             </div><br/>
             <hr/>
             <div class="col-md-12">
