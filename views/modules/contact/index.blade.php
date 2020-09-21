@@ -11,8 +11,8 @@
                 <h2>{{ setting('theme::company-name') }}</h2>
                 <address>
                     {{ setting("theme::address") }}<br/>
-                    <abbr title="Telefon">T:</abbr><a href="tel:@setting('theme::phone')">@setting('theme::phone')</a><br/>
-                    <abbr title="Faks">F:</abbr><a href="tel:@setting('theme::fax')">@setting('theme::fax')</a><br/>
+                    <abbr title="Telefon"><i class="fa fa-phone"></i> </abbr><a href="tel:@setting('theme::phone')">@setting('theme::phone')</a><br/>
+                    <abbr title="Faks"><i class="fa fa-fax"></i> </abbr><a href="tel:@setting('theme::fax')">@setting('theme::fax')</a><br/>
 
                     @includeIf('contact::map')
                 </address>

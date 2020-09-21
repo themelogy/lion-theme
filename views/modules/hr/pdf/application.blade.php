@@ -130,7 +130,7 @@
                 <th class="col-md-3">{{ trans('hr::applications.select.skills.program') }}</th>
                 <th class="col-md-9">{{ trans('hr::applications.select.skills.level') }}</th>
             </tr>
-            @if(count($application->present()->skills)>0)
+            @if(@$application->present()->skills)
                 @foreach($application->present()->skills as $skill)
                     <tr>
                         <td>{{ $skill->program }}</td>
@@ -149,7 +149,7 @@
                 <th class="col-md-3">{{ trans('hr::applications.form.languages.write') }}</th>
                 <th class="col-md-3">{{ trans('hr::applications.form.languages.speak') }}</th>
             </tr>
-            @if(count($application->present()->language)>0)
+            @if(@$application->present()->language)
                 @foreach($application->present()->language as $language)
                     <tr>
                         <td>{{ $language->lang }}</td>
@@ -171,7 +171,7 @@
                 <th>{{ trans('hr::applications.form.educate.branch') }}</th>
                 <th>{{ trans('hr::applications.form.educate.status') }}</th>
             </tr>
-            @if(count($application->present()->education)>0)
+            @if(@$application->present()->education)
                 @foreach($application->present()->education as $education)
                     <tr>
                         <td>{{ $education->start_at }}</td>
@@ -192,7 +192,7 @@
                 <th class="col-md-5">{{ trans('hr::applications.form.courses.company') }}</th>
                 <th class="col-md-2">{{ trans('hr::applications.form.courses.date') }}</th>
             </tr>
-            @if(count($application->present()->courses)>0)
+            @if(@$application->present()->courses)
                 @foreach($application->present()->courses as $course)
                     @if(isset($course->name))
                         <tr>
@@ -208,7 +208,7 @@
     <fieldset>
         <legend>{{ trans('hr::applications.legend.experience') }}</legend>
         <div class="row">
-            @if(count($application->present()->experience)>0)
+            @if(@$application->present()->experience)
                 @foreach($application->present()->experience as $experience)
                     @if(isset($experience->end_at))
                         <div class="col-md-3">
@@ -266,7 +266,7 @@
                 <th class="col-md-2">{{ trans('hr::applications.form.references.proximity') }}</th>
                 <th class="col-md-2">{{ trans('hr::applications.form.references.phone') }}</th>
             </tr>
-            @if(count($application->present()->references)>0)
+            @if(@$application->present()->references)
                 @foreach($application->present()->references as $reference)
                     @if(isset($reference->full_name))
                         <tr>
@@ -307,7 +307,7 @@
                 <th class="col-md-2">{{ trans('hr::applications.form.emergencies.full_name') }}</th>
                 <th class="col-md-8">{{ trans('hr::applications.form.emergencies.phone') }}</th>
             </tr>
-            @if(count($application->present()->emergency)>0)
+            @if(@$application->present()->emergency)
                 @foreach($application->present()->emergency as $emergency)
                     @if(isset($emergency->full_name))
                         <tr>

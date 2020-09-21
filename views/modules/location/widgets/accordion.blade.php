@@ -10,7 +10,18 @@
                     @if($img = $location->present()->firstImage(800,600,'fit',80))
                         <div class="row">
                             <div class="col-md-4">
-                                <img class="img-responsive img-thumbnail" src="{{ $img }}" alt="{{ $location->name }}" />
+                                <div class="picture" style="position: relative;">
+                                    <img class="img-responsive img-thumbnail" src="{{ $img }}" alt="{{ $location->name }}" />
+                                    @if(\Modules\Location\Entities\Amenity::hasAmenity())
+                                    <div class="amenities" style="position: absolute; bottom: 20px; left: 20px;">
+                                        @if(is_object($location->settings))
+                                            @foreach($location->settings->amenities as $key => $amenity)
+                                                <div class="label label-danger"><i class="fa fa-check"></i> {{ $key }}</div>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                    @endif
+                                </div>
                             </div>
                             <div class="col-md-8">
                                 <address title="{{ $location->name }}" class="address">

@@ -12,5 +12,18 @@
 @endisset
 
 @if(@$image)
-<div class="page-cover" style="background: url({{ $image }}) no-repeat center center; background-size: cover; height: 250px; margin-bottom: 10px;"></div>
+<div class="container">
+<img src="{{ $image }}" class="img-responsive" />
+</div>
 @endif
+
+
+@push('css_inline')
+	<style>
+		.page-cover {
+			background-size: cover; 
+			height: 300px; 
+			margin-bottom: 10px;
+		}
+	</style>
+@endpush

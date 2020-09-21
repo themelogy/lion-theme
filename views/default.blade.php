@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    @component('partials.components.title', ['breadcrumbs'=>'page', 'image' => $page->present()->coverImage(1280,250,'fit',80)])
+    @component('partials.components.title', ['breadcrumbs'=>'page', 'image' => $page->present()->coverImage(1280,300,'fit',80)])
         <h1 class="title">{{ $page->title }}</h1>
     @endcomponent
 
@@ -13,7 +13,7 @@
             @elseif($page && ($page->settings->list_page ?? false))
                 @include('page::partials.list')
             @elseif($page && !($page->settings->list_page ?? false) && !($page->parent->settings->show_menu ?? false))
-                @if($page->settings->show_slide)
+                @if(@$page->settings->show_slide)
                     @include('page::partials.slide-image')
                 @else
                     @include('page::partials.image')

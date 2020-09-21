@@ -21,4 +21,4 @@
 @stack('js-inline')
 @include('core::cookie-law')
 
-@includeIf('partners.analytics')
+{{-- @includeIf('partials.analytics') --}}

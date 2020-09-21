@@ -6,7 +6,7 @@
         <ul>
             <li><h4>{{ $employee->fullname }}</h4></li>
             @if($employee->position)
-                <li>{{ $employee->position }}</li>
+                <li><small>{{ $employee->position }}</small></li>
             @endif
             @if($employee->mobile)
                 <li><i class="fa fa-mobile-phone"></i> <a href="tel:{{ $employee->phone }}">{{ $employee->mobile }}</a></li>
