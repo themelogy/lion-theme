@@ -10,6 +10,9 @@
             @endif
             {!! $slot ?? '' !!}
         @endif
+        @if(@$page->settings->faq_category)
+            @faqCategory($page->settings->faq_category)
+        @endif
     </div>
     <div class="col-md-3">
         @if($page)

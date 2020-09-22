@@ -59,5 +59,10 @@
             {!! Form::normalSelect("settings[news_category]", "Haber Kategorisi", $errors, [null => 'Seçiniz']+$newsCategories, isset($page->settings->news_category) ? $page->settings->news_category : null) !!}
             @endif
         </div>
+        <div class="col-md-3">
+            @if($faqCategories = app(\Modules\Faq\Repositories\CategoryRepository::class)->all()->pluck('name', 'slug')->toArray())
+                {!! Form::normalSelect("settings[faq_category]", "SSS Kategorisi", $errors, [null => 'Seçiniz']+$faqCategories, isset($page->settings->faq_category) ? $page->settings->faq_category : null) !!}
+            @endif
+        </div>
     </fieldset>
 </div>
