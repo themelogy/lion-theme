@@ -1,0 +1,60 @@
+@extends('layouts.master')
+
+@section('content')
+    @component('partials.components.title')
+        <h1 class="title">TAŞIT TANIMA SİSTEMİ ONLİNE BAŞVURU</h1>
+    @endcomponent
+    <div class="page-content mb20 step-form">
+        <div class="container txt-lg">
+            <div class="row">
+                <div class="col-md-12">
+
+                    @include('register::stepper', ['step1'=>'active'])
+
+                    {!! Form::open(['route' => ['register.form.step-1.put'], 'method' => 'post']) !!}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Form::normalInput('company', trans('register::forms.form.company'), $errors, $form) !!}
+                        </div>
+                        <div class="col-md-6">
+                            {!! Form::normalInput('identity_no', trans('register::forms.form.identity_no'), $errors, $form) !!}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Form::normalInput('signatory', trans('register::forms.form.signatory'), $errors, $form) !!}
+                        </div>
+                        <div class="col-md-6">
+                            {!! Form::normalInput('email', trans('register::forms.form.email'), $errors, $form) !!}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Form::normalInput('work_phone', trans('register::forms.form.work_phone'), $errors, $form, ['placeholder'=>'(555) 555 55 55']) !!}
+                        </div>
+                        <div class="col-md-6">
+                            {!! Form::normalInput('mobile_phone', trans('register::forms.form.mobile_phone'), $errors, $form, ['placeholder'=>'(555) 555 55 55']) !!}
+                        </div>
+                    </div>
+
+                    {!! Form::normalTextarea('shipping_address', trans('register::forms.form.shipping_address'), $errors, $form, ['class'=>'form-control', 'rows'=>4]) !!}
+
+                    {!! Form::submit('İLERİ', ['class'=>'btn btn-primary mt-sm-10']) !!}
+
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@push('js-stack')
+    {!! Theme::script('js/jquery.mask.min.js') !!}
+    <script>
+        $(document).ready(function(){
+            $('#work_phone').mask('(000) 000 00 00');
+            $('#mobile_phone').mask('(000) 000 00 00');
+        });
+    </script>
+@endpush

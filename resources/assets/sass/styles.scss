@@ -49,6 +49,11 @@
 @import "styles/components/services";
 @import "styles/components/business-card";
 @import "styles/components/gallery";
-@import "styles/flaticon";
+@import "flaticon";
+@import "styles/components/stepper";
 @import "styles/custom";
+
+.theme-txt-color {
+  color: $default-theme-color !important;
+}
 

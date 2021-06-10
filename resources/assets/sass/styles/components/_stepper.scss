@@ -1,0 +1,360 @@
+/*!
+ * bsStepper v1.7.0 (https://github.com/Johann-S/bs-stepper)
+ * Copyright 2018 - 2019 Johann-S <johann.servoire@gmail.com>
+ * Licensed under MIT (https://github.com/Johann-S/bs-stepper/blob/master/LICENSE)
+ */
+
+.bs-stepper {
+  margin-bottom: 20px;
+
+  .step-trigger {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 10px 20px;
+
+    //font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #6c757d;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: none;
+    border-radius: .25rem;
+    transition: background-color .15s ease-out, color .15s ease-out;
+
+    &:not(:disabled):not(.disabled) {
+      cursor: pointer;
+    }
+
+    &:disabled, &.disabled {
+      pointer-events: none;
+      opacity: .65;
+    }
+
+    &:focus {
+      color: #007bff;
+      outline: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.06);
+    }
+  }
+}
+
+.step.active {
+  text-decoration: none;
+  //background-color: rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 520px) {
+  .bs-stepper .step-trigger {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 10px;
+  }
+}
+
+.bs-stepper-label {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.bs-stepper-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media (max-width: 520px) {
+  .bs-stepper-header {
+    margin: 0 -10px;
+    text-align: center;
+  }
+}
+
+.bs-stepper-line, .bs-stepper .line {
+  -ms-flex: 1 0 32px;
+  flex: 1 0 32px;
+  min-width: 1px;
+  min-height: 1px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 400px) {
+  .bs-stepper-line, .bs-stepper .line {
+    -ms-flex-preferred-size: 20px;
+    flex-basis: 20px;
+  }
+}
+
+.bs-stepper-circle {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  padding: .5em 0;
+  margin: .25rem;
+  line-height: 1em;
+  color: #fff;
+  background-color: $default-theme-color;
+  border-radius: 1em;
+}
+
+.active .bs-stepper-circle {
+  background-color: green;
+}
+
+.bs-stepper-content {
+  padding: 0 20px 20px;
+}
+
+@media (max-width: 520px) {
+  .bs-stepper-content {
+    padding: 0;
+  }
+}
+
+.bs-stepper.vertical {
+  display: -ms-flexbox;
+  display: flex;
+
+  .bs-stepper-header {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin: 0;
+  }
+
+  .bs-stepper-pane, .content {
+    display: block;
+  }
+
+  .bs-stepper-pane:not(.fade), .content:not(.fade) {
+    display: block;
+    visibility: hidden;
+  }
+}
+
+.bs-stepper-pane:not(.fade) {
+  display: none;
+}
+
+.bs-stepper .content {
+  &:not(.fade) {
+    display: none;
+  }
+
+  &.fade {
+    visibility: hidden;
+    transition-duration: .3s;
+    transition-property: opacity;
+  }
+}
+
+.bs-stepper-pane.fade {
+  visibility: hidden;
+  transition-duration: .3s;
+  transition-property: opacity;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.bs-stepper .content.fade.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.bs-stepper-pane.active:not(.fade), .bs-stepper .content.active:not(.fade) {
+  display: block;
+  visibility: visible;
+}
+
+.bs-stepper-pane.dstepper-block {
+  display: block;
+}
+
+.bs-stepper {
+  .content.dstepper-block {
+    display: block;
+  }
+
+  &:not(.vertical) {
+    .bs-stepper-pane.dstepper-none, .content.dstepper-none {
+      display: none;
+    }
+  }
+}
+
+.vertical {
+  .bs-stepper-pane.fade.dstepper-none, .content.fade.dstepper-none {
+    visibility: hidden;
+  }
+}
+
+
+.form {
+  .btn {
+    margin-top: 20px;
+  }
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; //Box ortalama
+    align-content: flex-start; //content ortalama
+    margin: 30px 0 20px 0;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  }
+  &__radio-group {
+    flex-direction: row;
+    flex-grow: 1;
+    padding: 10px;
+    //border: 1px solid #ebebeb;
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-label {
+    font-size: 2rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem;
+  }
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $default-theme-color;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.25rem;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $default-theme-color;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+  }
+
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1 !important;
+  }
+}
+
+
+
+/* The container */
+.form-check {
+  display: block;
+  position: relative;
+  padding-left: 30px !important;
+  margin-bottom: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.form-check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.form-check:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.form-check input:checked ~ .checkmark {
+  background-color: $default-theme-color;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.form-check input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.form-check .checkmark:after {
+  left: 9px;
+  top: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.has-error {
+  color: #a94442 !important;
+  * {
+    border-color: #a94442 !important;
+  }
+}

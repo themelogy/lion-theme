@@ -1,5 +1,6 @@
 {!! seo_helper()->render() !!}
 <link rel="shortcut icon" href="{!! Theme::url('img/favicon.png') !!}" type="image/png">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 <script async>
     WebFontConfig = { google: {

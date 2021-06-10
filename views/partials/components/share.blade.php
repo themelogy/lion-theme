@@ -1,16 +1,16 @@
 @php
     $theme = isset($theme) ? $theme : 'minima';
-    $layout = 'vendor/jssocials/dist/jssocials-theme-'. $theme .'.css';
+    $layout = 'vendor/jssocials/jssocials-theme-'. $theme .'.css';
 @endphp
 <div id="share" class="{{ $theme }}"></div>
 
 @push('css-stack')
-    {!! Theme::style('vendor/jssocials/dist/jssocials.css') !!}
+    {!! Theme::style('vendor/jssocials/jssocials.css') !!}
     {!! Theme::style($layout) !!}
 @endpush
 
 @push('js-stack')
-    {!! Theme::script('vendor/jssocials/dist/jssocials.min.js', ['defer']) !!}
+    {!! Theme::script('vendor/jssocials/jssocials.min.js', ['defer']) !!}
 @endpush
 
 @push('js-inline')

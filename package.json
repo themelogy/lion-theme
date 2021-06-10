@@ -1,0 +1,14 @@
+{
+  "name": "lion",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://themelogy@github.com/themelogy/lion-theme.git"
+  },
+  "dependencies": {
+    "jquery-mask-plugin": "^1.14.16",
+    "jssocials": "^1.5.0",
+    "vue2-dropzone": "^3.6.0"
+  }
+}
