@@ -38,8 +38,6 @@
                         </div>
                     </div>
 
-                    {!! Form::normalTextarea('shipping_address', trans('register::forms.form.shipping_address'), $errors, $form, ['class'=>'form-control', 'rows'=>4]) !!}
-
                     {!! Form::submit('İLERİ', ['class'=>'btn btn-primary mt-sm-10']) !!}
 
                     {!! Form::close() !!}

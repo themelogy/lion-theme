@@ -76,4 +76,39 @@
             }
         });
     </script>
+    <style>
+        .slide-fade-enter-active {
+            transition: all .3s ease;
+        }
+
+        .slide-fade-leave-active {
+            transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+
+        .slide-fade-enter, .slide-fade-leave-to
+            /* .slide-fade-leave-active below version 2.1.8 */
+        {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+        .credit_card-cars {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .credit_card-cars div:first-child {
+            padding-left: 0;
+        }
+        .credit_card-cars div:last-child {
+            padding-right: 0;
+        }
+        .credit_card-cars div {
+            padding: 0 5px;
+            flex-direction: row;
+        }
+        @media screen and (max-width: 800px) {
+            .credit_card-cars div {
+                flex-direction: column;
+            }
+        }
+    </style>
 @endpush

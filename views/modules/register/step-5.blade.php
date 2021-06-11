@@ -20,8 +20,8 @@
                             <tr>
                                 <th style="width: 25%">@lang('register::forms.form.company')</th>
                                 <td>: {{ $form->company }}</td>
-                                <th>@lang('register::forms.form.tc_no') :</th>
-                                <td>: {{ $form->tc_no }}</td>
+                                <th>@lang('register::forms.form.identity_no') :</th>
+                                <td>: {{ $form->identity_no }}</td>
                             </tr>
                             <tr>
                                 <th>@lang('register::forms.form.signatory') :</th>
@@ -74,7 +74,7 @@
                             </tr>
                             <tr>
                                 <th>@lang('register::forms.form.credit_card.provision_amount')</th>
-                                <td>: {!! $form->credit_card->provision_amount !!} TL</td>
+                                <td>: {!! number_format($form->credit_card->provision_amount, 2) !!} TL</td>
                             </tr>
                             <tr>
                                 <th>@lang('register::forms.form.credit_card.phone')</th>
@@ -85,8 +85,21 @@
                                 <td>: {!! $form->credit_card->address !!}</td>
                             </tr>
                             <tr>
-                                <th>@lang('register::forms.form.credit_card.cars_plate')</th>
-                                <td>: @foreach($form->credit_card->cars as $car) {{ $car->plate }} @endforeach</td>
+                                <th>@lang('register::forms.form.credit_card.cars')</th>
+                                <td>
+                                    @foreach($form->credit_card->cars as $car)
+                                    <div style="display: inline-flex;">
+                                        <div style="padding: 10px 20px" class="thumbnail">
+                                            <h4>{{ $car->plate }}</h4>
+                                            <p>
+                                                {{ $car->department }}<br/>
+                                                {{ $car->brand.' '.$car->model }}<br/>
+                                                {{ $car->fuel }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </td>
                             </tr>
                             @endif
                         </table>
@@ -141,6 +154,10 @@
                             </tr>
                         </table>
                     </div>
+                    @endif
+
+                    @if(array_search("Automatic Kart", array_column($form->credit_card->cars, "kit")) !== false)
+                        {!! Form::normalTextarea('shipping_address', trans('register::forms.form.shipping_address'), $errors, $form, ['class'=>'form-control', 'rows'=>4]) !!}
                     @endif
 
                     <div class="checkbox">

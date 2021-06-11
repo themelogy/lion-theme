@@ -68,39 +68,99 @@
                     </transition>
 
                     <transition name="slide-fade">
-                    <fieldset v-if="collateral_id == credit_card">
-                        <legend>Araç Bilgisi</legend>
-                        <template v-for="(car, key) in cars">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="plate" v-if="key == 0">@lang('register::forms.form.credit_card.cars_plate')</label>
-                                        <input id="plate" :name="'credit_card[cars]['+key+'][plate]'" placeholder="@lang('register::forms.form.credit_card.cars_plate')" class="form-control input-sm" v-model="car.plate" />
+                        <fieldset v-if="collateral_id == credit_card">
+                            <legend>Araç Bilgisi</legend>
+                            <template v-for="(car, key) in cars">
+                                <div class="credit_card-cars">
+                                    <div>
+                                        <div class="form-group @if($errors->first('credit_card.cars.*.plate')) has-error @endif">
+                                            <label for="plate"
+                                                   v-if="key == 0">@lang('register::forms.form.credit_card.cars_plate')</label>
+                                            <input id="plate" :name="'credit_card[cars]['+key+'][plate]'"
+                                                   placeholder="@lang('register::forms.form.credit_card.cars_plate')"
+                                                   class="form-control input-sm" v-model="car.plate"/>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group @if($errors->first('credit_card.cars.*.brand')) has-error @endif">
+                                            <label for="brand"
+                                                   v-if="key == 0">@lang('register::forms.form.credit_card.cars_brand')</label>
+                                            <input id="brand" :name="'credit_card[cars]['+key+'][brand]'"
+                                                   placeholder="@lang('register::forms.form.credit_card.cars_brand')"
+                                                   class="form-control input-sm" v-model="car.brand"/>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group @if($errors->first('credit_card.cars.*.model')) has-error @endif">
+                                            <label for="brand"
+                                                   v-if="key == 0">@lang('register::forms.form.credit_card.cars_model')</label>
+                                            <input id="brand" :name="'credit_card[cars]['+key+'][model]'"
+                                                   placeholder="@lang('register::forms.form.credit_card.cars_model')"
+                                                   class="form-control input-sm" v-model="car.model"/>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group @if($errors->first('credit_card.cars.*.department')) has-error @endif">
+                                            <label for="department"
+                                                   v-if="key == 0">@lang('register::forms.form.credit_card.cars_department')</label>
+                                            <select id="department" :name="'credit_card[cars]['+key+'][department]'"
+                                                    class="form-control" v-model="car.department">
+                                                <option v-for="department in departments" :value="department">@{{
+                                                    department }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group @if($errors->first('credit_card.cars.*.fuel')) has-error @endif">
+                                            <label for="fuel"
+                                                   v-if="key == 0">@lang('register::forms.form.credit_card.cars_fuel')</label>
+                                            <select id="fuel" :name="'credit_card[cars]['+key+'][fuel]'"
+                                                    class="form-control" v-model="car.fuel">
+                                                <option v-for="fuel in fuels" :value="fuel">@{{ fuel }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="form-group @if($errors->first('credit_card.cars.*.kit')) has-error @endif">
+                                            <label for="kit"
+                                                   v-if="key == 0">@lang('register::forms.form.credit_card.cars_kit')</label>
+                                            <select id="kit" :name="'credit_card[cars]['+key+'][kit]'"
+                                                    class="form-control" v-model="car.kit">
+                                                <option v-for="kit in kits" :value="kit">@{{ kit }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label v-if="key == 0">&nbsp;</label>
+                                        <div class="form-group" style="padding: 10px">
+                                            <a class="btn-floating"
+                                               v-on:click="addRow(key, 'cars')" v-if="cars.length < 20">
+                                                <i class="fa fa-plus"></i></a>
+                                            <a class="btn-floating"
+                                               v-on:click="removeRow(key, 'cars')" v-if="cars.length > 1">
+                                                <i class="fa fa-minus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <label v-if="key == 0">&nbsp;</label>
-                                    <div class="form-group">
-                                        <a class="btn-floating"
-                                           v-on:click="addRow(key, 'cars')" v-if="cars.length < 20">
-                                            <i class="fa fa-plus"></i></a>
-                                        <a class="btn-floating"
-                                           v-on:click="removeRow(key, 'cars')" v-if="cars.length > 1">
-                                            <i class="fa fa-minus"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            {{ $errors->first('credit_card.cars.*.plate') }}
-                        </template>
-                    </fieldset>
+                            </template>
+                        </fieldset>
                     </transition>
 
                     <div class="row" v-if="collateral_id == credit_card">
                         <div class="col-md-12">
-                            Kullanım bedellerini provizyon tutarı üzerinden yukarıda belirttiğim Kredi Kartı hesabıma borç kaydediniz. Şahsi bilgileriniz, (kredi kartı, adres, e-mail, telefon veya müşteri numarası vb.) bu bilgiler, sizin haberiniz veya onayınız olmadan ya da yasal yükümlülük altında bulunmadığı sürece 3. şahıslara kesinlikle verilmeyecektir. Bu bilgiler, en yüksek güvenlik ve gizlilik standartlarımızla korunacaktır. Bu sorumluluk firmamız tarafından, yerine getirilemediği takdirde bütün sorumluğu kayıtsız şartsız kabul etmektedir.
+                            Kullanım bedellerini provizyon tutarı üzerinden yukarıda belirttiğim Kredi Kartı hesabıma
+                            borç kaydediniz. Şahsi bilgileriniz, (kredi kartı, adres, e-mail, telefon veya müşteri
+                            numarası vb.) bu bilgiler, sizin haberiniz veya onayınız olmadan ya da yasal yükümlülük
+                            altında bulunmadığı sürece 3. şahıslara kesinlikle verilmeyecektir. Bu bilgiler, en yüksek
+                            güvenlik ve gizlilik standartlarımızla korunacaktır. Bu sorumluluk firmamız tarafından,
+                            yerine getirilemediği takdirde bütün sorumluğu kayıtsız şartsız kabul etmektedir.
                             <div class="checkbox">
                                 <label class="form-check @if($errors->first('credit_card.agree')) has-error @endif">
-                                    <input name="credit_card[agree]" type="checkbox" value="1" {{ @$form->credit_card->agree ? 'checked="checked"' : '' }}> Onay Bilgisi (Yukarıda belirttiğim araç plakalarının alımlarını yukarıda belirtmiş olduğum kredi kartından tahsil ediniz. Bilginize sunulur.)
+                                    <input name="credit_card[agree]" type="checkbox"
+                                           value="1" {{ @$form->credit_card->agree ? 'checked="checked"' : '' }}> Onay
+                                    Bilgisi (Yukarıda belirttiğim araç plakalarının alımlarını yukarıda belirtmiş
+                                    olduğum kredi kartından tahsil ediniz. Bilginize sunulur.)
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -126,16 +186,22 @@
                 collateral_id: '{{ old('collateral_id', $form->collateral_id) }}',
                 credit_card: '{{ setting('register::credit-card') }}',
                 collateral_types: {!! $collateralTypes !!},
-                cars : {!! isset($form->credit_card->cars) ? json_encode($form->credit_card->cars) : "[{ plate: '' }]" !!}
+                cars: {!! old('credit_card.cars', @$form->credit_card->cars) ? json_encode(old('credit_card.cars', @$form->credit_card->cars)) : "[{ plate:'', brand: '', model:'', fuel: 'Benzin', department: 'Yönetim', kit: 'Automatic Kart', }]" !!},
+                fuels: ['Benzin', 'Dizel', 'LPG'],
+                departments: ['Yönetim', 'Muhasebe ve Finans', 'Pazarlama', 'Dış Ticaret', 'İnsan Kaynakları', 'Lojistik', 'Ar-Ge', 'IT', 'Basın Medya'],
+                kits: ['Automatic Kart', 'Taşıt Tanıma']
             },
             methods: {
                 addRow: function (index, id) {
                     this.cars.splice(index + 1, 0, {});
+                    this.cars[index + 1].fuel = 'Benzin';
+                    this.cars[index + 1].department = 'Yönetim';
+                    this.cars[index + 1].kit = 'Automatic Kart';
                 },
                 removeRow: function (index, id) {
                     this.cars.splice(index, 1);
                 },
-                collateralUpdate: function(index) {
+                collateralUpdate: function (index) {
                     this.collateral_code = this.collateral_types[index].code;
                 }
             }
@@ -156,10 +222,29 @@
             transform: translateX(10px);
             opacity: 0;
         }
+        .credit_card-cars {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .credit_card-cars div:first-child {
+            padding-left: 0;
+        }
+        .credit_card-cars div:last-child {
+            padding-right: 0;
+        }
+        .credit_card-cars div {
+            padding: 0 5px;
+            flex-direction: row;
+        }
+        @media screen and (max-width: 800px) {
+            .credit_card-cars div {
+                flex-direction: column;
+            }
+        }
     </style>
     {!! Theme::script('js/jquery.mask.min.js') !!}
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('#credit_card_no').mask('0000 0000 0000 0000');
             $('#end_date').mask('00/0000', {placeholder: "__/____"});
             $('#cvv').mask('000');
