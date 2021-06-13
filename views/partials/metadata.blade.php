@@ -18,14 +18,8 @@
     })(document);
 </script>
 
-@if(app()->environment() == 'local')
-    {!! Theme::style('css/bootstrap.css?=v'.date('dmY')) !!}
-    {!! Theme::style('css/font-awesome.css?=v'.date('dmY')) !!}
-    {!! Theme::style('css/icomoon.css?v='.date('dmY')) !!}
-    {!! Theme::style('css/styles.css?v='.date('dmY')) !!}
-@else
-    {!! Theme::style('css/style.min.css?v='.date('dmY')) !!}
-@endif
+<link media="all" type="text/css" rel="stylesheet" href="{{ mix('/themes/lion/css/vendor.min.css') }}" />
+<link media="all" type="text/css" rel="stylesheet" href="{{ mix('/themes/lion/css/styles.css') }}" />
 
 <!--[if lt IE 9]>
 {!! Theme::script('js/modernizr.js') !!}

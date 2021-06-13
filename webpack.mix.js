@@ -33,13 +33,16 @@ mix
     .sass(source + '/resources/assets/sass/styles.scss', dist + '/css')
     .options({
         processCssUrls: false
-    });
+    })
+
+// Copy Directory to asset
+mix.copyDirectory(resource_asset, dist);
 
 mix.combine([
     resource_asset + '/plugins/revolution/css/settings.css',
     resource_asset + '/plugins/revolution/css/layers.css',
     resource_asset + '/plugins/revolution/css/navigation.css'
-], resource_asset + '/plugins/revolution/css/jquery.revolution.min.css');
+], dist + '/plugins/revolution/css/jquery.revolution.min.css');
 
 mix.combine([
     resource_asset + '/plugins/revolution/js/jquery.themepunch.tools.min.js',
@@ -53,7 +56,7 @@ mix.combine([
     resource_asset + '/plugins/revolution/js/extensions/revolution.extension.parallax.min.js',
     resource_asset + '/plugins/revolution/js/extensions/revolution.extension.slideanims.min.js',
     resource_asset + '/plugins/revolution.js/extensions/revolution.extension.video.min.js'
-], resource_asset + '/plugins/revolution/js/jquery.revolution.min.js');
+], dist + '/plugins/revolution/js/jquery.revolution.min.js');
 
 mix.combine([
     resource_asset + '/js/bootstrap.js',
@@ -63,12 +66,20 @@ mix.combine([
     resource_asset + '/js/jquery.unveil.js',
 
     'node_modules/smartmenus/dist/jquery.smartmenus.min.js'
-], resource_asset + '/js/vendor.min.js');
+], dist + '/js/vendor.min.js');
 
-// Copy Directory to asset
-mix.copyDirectory(resource_asset, dist);
+mix.combine([
+    resource_asset + '/css/bootstrap.css',
+    resource_asset + '/css/font-awesome.css',
+    resource_asset + '/css/icomoon.css',
+], dist + '/css/vendor.min.css');
 
 mix.minify(dist + '/js/custom.js');
+
+if ( isProduction )
+{
+    mix.version();
+}
 
 // Browser Sync
 if( ! isProduction) {

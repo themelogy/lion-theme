@@ -6,17 +6,13 @@
 @stack('css-inline')
 
 {!! Theme::script('js/jquery.min.js') !!}
-{!! Theme::script('js/vendor.min.js') !!}
+<script src="{{ mix('/themes/lion/js/vendor.min.js') }}"></script>
 {!! Theme::script('js/owl-carousel.js') !!}
 
 {!! Asset::js() !!}
 @stack('js-stack')
 
-@if(env('APP_ENV')=='local')
-    {!! Theme::script('js/custom.js') !!}
-@else
-    {!! Theme::script('js/custom.min.js') !!}
-@endif
+<script src="{{ mix('/themes/lion/js/custom.min.js') }}"></script>
 
 @stack('js-inline')
 @include('core::cookie-law')

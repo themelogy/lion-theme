@@ -101,8 +101,8 @@
 
 
 @push('js-stack')
-    {!! Theme::style('plugins/revolution/css/jquery.revolution.min.css') !!}
-    {!! Theme::script('plugins/revolution/js/jquery.revolution.min.js') !!}
+    <link media="all" type="text/css" rel="stylesheet" href="{{ mix('/themes/lion/plugins/revolution/css/jquery.revolution.min.css') }}" />
+    <script src="{{ mix('/themes/lion/plugins/revolution/js/jquery.revolution.min.js') }}"></script>
 @endpush
 
 @push('js-inline')
