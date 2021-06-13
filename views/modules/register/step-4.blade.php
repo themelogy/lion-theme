@@ -19,7 +19,7 @@
                     </div>
                     <p>Vergi Levhası, Ticaret Sicil Gazetesi, Kimlik Fotokopisi, Ruhsat Fotokopisi vb. (pdf, xls, xlsx, doc, docx, jpg, jpeg, png)</p>
 
-                    <a class="btn btn-primary mt-sm-10" href="{{ route('register.form.step-5') }}">İleri</a>
+                    <a class="btn btn-primary mt-sm-10" href="{{ route('register.form.step-5') }}">@lang('register::forms.button.next'))</a>
                 </div>
             </div>
         </div>

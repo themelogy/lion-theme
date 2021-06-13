@@ -43,7 +43,7 @@
                     </div>
                     </transition>
 
-                    {!! Form::submit('İLERİ', ['class'=>'btn btn-primary mt-sm-10']) !!}
+                    {!! Form::submit(trans('register::forms.button.next'), ['class'=>'btn btn-primary mt-sm-10']) !!}
 
                     {!! Form::close() !!}
                 </div>

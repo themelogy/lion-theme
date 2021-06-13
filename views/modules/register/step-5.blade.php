@@ -182,7 +182,7 @@
                         </label>
                     </div>
 
-                    {!! Form::submit('BAŞVURUYU TAMAMLA', ['class'=>'btn btn-primary mt-sm-10']) !!}
+                    {!! Form::submit(trans('register::forms.button.complete form'), ['class'=>'btn btn-primary mt-sm-10']) !!}
 
                     {!! Form::close() !!}
 
