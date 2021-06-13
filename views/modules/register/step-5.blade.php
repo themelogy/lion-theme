@@ -10,6 +10,10 @@
             <div class="row">
                 <div class="col-md-12">
 
+                    @foreach($errors->all() as $message)
+                        <div class="alert alert-warning">{{ $message }}</div>
+                    @endforeach
+
                     @include('register::stepper', ['step1' => 'active', 'step2'=>'active', 'step3' => 'active', 'step4' => 'active', 'step5'=>'active'])
 
                     {!! Form::open(['route' => ['register.form.step-5.put'], 'method' => 'post', 'class' => 'form']) !!}
@@ -84,6 +88,7 @@
                                 <th>@lang('register::forms.form.credit_card.address')</th>
                                 <td>: {!! $form->credit_card->address !!}</td>
                             </tr>
+                            @if(isset($form->credit_card->cars))
                             <tr>
                                 <th>@lang('register::forms.form.credit_card.cars')</th>
                                 <td>
@@ -101,6 +106,7 @@
                                     @endforeach
                                 </td>
                             </tr>
+                            @endif
                             @endif
                         </table>
                     </div>
@@ -156,8 +162,10 @@
                     </div>
                     @endif
 
-                    @if(array_search("Automatic Kart", array_column($form->credit_card->cars, "kit")) !== false)
-                        {!! Form::normalTextarea('shipping_address', trans('register::forms.form.shipping_address'), $errors, $form, ['class'=>'form-control', 'rows'=>4]) !!}
+                    @if(isset($form->credit_card->cars))
+                        @if(array_search("Automatic Kart", array_column($form->credit_card->cars, "kit")) !== false)
+                            {!! Form::normalTextarea('shipping_address', trans('register::forms.form.shipping_address'), $errors, $form, ['class'=>'form-control', 'rows'=>4]) !!}
+                        @endif
                     @endif
 
                     <div class="checkbox">

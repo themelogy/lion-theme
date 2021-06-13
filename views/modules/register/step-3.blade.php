@@ -18,7 +18,7 @@
                             {!! Form::normalInputGroup('collateral_amount', trans('register::forms.form.collateral_amount'), $errors, $form, ['style'=>'text-align:right;'], 'TL') !!}
                         </div>
                         <div class="col-md-6">
-                            {!! Form::normalInputGroup('monthly_consumption', trans('register::forms.form.monthly_consumption'), $errors, $form, ['style'=>'text-align:right;', 'v-on:keydown' => 'onPageDown', 'v-model'=>'monthly_consumption'], 'TL') !!}
+                            {!! Form::normalInputGroup('monthly_consumption', trans('register::forms.form.monthly_consumption'), $errors, $form, ['style'=>'text-align:right;', 'v-on:keydown' => 'onPageDown', 'v-on:change' => 'onPageDown', 'v-model'=>'monthly_consumption'], 'TL') !!}
                         </div>
                     </div>
 
