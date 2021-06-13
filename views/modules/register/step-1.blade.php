@@ -2,7 +2,7 @@
 
 @section('content')
     @component('partials.components.title')
-        <h1 class="title">TAŞIT TANIMA SİSTEMİ ONLİNE BAŞVURU</h1>
+        <h1 class="title">@lang('register::registers.title.heading')</h1>
     @endcomponent
     <div class="page-content mb20 step-form">
         <div class="container txt-lg">
