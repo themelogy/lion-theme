@@ -10,9 +10,13 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    @foreach($errors->all() as $message)
-                        <div class="alert alert-warning">{{ $message }}</div>
-                    @endforeach
+                    @if($errors->any())
+                        <div class="alert alert-warning">
+                        @foreach($errors->all() as $message)
+                            {{ $message }}
+                        @endforeach
+                        </div>
+                    @endif
 
                     @include('register::stepper', ['step1' => 'active', 'step2'=>'active', 'step3' => 'active', 'step4' => 'active', 'step5'=>'active'])
 
@@ -39,12 +43,6 @@
                                 <th>@lang('register::forms.form.mobile_phone') :</th>
                                 <td>: {{ $form->work_phone }}</td>
                             </tr>
-                            <tr>
-                                <th>@lang('register::forms.form.shipping_address')</th>
-                                <td>: {{ $form->shipping_address }}</td>
-                                <td>&nbsp</td>
-                                <td>&nbsp;</td>
-                            </tr>
                         </table>
                     </div>
 
@@ -66,7 +64,7 @@
                             </tr>
                             <tr>
                                 <th>@lang('register::forms.form.credit_card.no')</th>
-                                <td>: {!! str_pad(substr($form->credit_card->no, -9), strlen($form->credit_card->no), '*', STR_PAD_LEFT); !!}</td>
+                                <td>: {!! str_pad(substr($form->credit_card->no, -11), strlen($form->credit_card->no), '*', STR_PAD_LEFT); !!}</td>
                             </tr>
                             <tr>
                                 <th>@lang('register::forms.form.credit_card.end_date')</th>
@@ -99,7 +97,8 @@
                                             <p>
                                                 {{ $car->department }}<br/>
                                                 {{ $car->brand.' '.$car->model }}<br/>
-                                                {{ $car->fuel }}
+                                                {{ $car->fuel }}<br/>
+                                                {{ $car->kit }}
                                             </p>
                                         </div>
                                     </div>

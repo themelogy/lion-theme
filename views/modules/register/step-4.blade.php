@@ -14,12 +14,12 @@
 
                     <div id="step-form">
 
-                    <vue-dropzone name="registerFiles" message="test" ref="registerFiles" id="registerFiles" :options="dropzoneOptions" v-on:vdropzone-removed-file="removeThisFile"></vue-dropzone>
+                        <vue-dropzone name="registerFiles" message="test" ref="registerFiles" id="registerFiles" :options="dropzoneOptions" v-on:vdropzone-removed-file="removeThisFile"></vue-dropzone>
 
                     </div>
                     <p>Vergi Levhası, Ticaret Sicil Gazetesi, Kimlik Fotokopisi, Ruhsat Fotokopisi vb. (pdf, xls, xlsx, doc, docx, jpg, jpeg, png)</p>
 
-                    <a class="btn btn-primary mt-sm-10" href="{{ route('register.form.step-5') }}">@lang('register::forms.button.next'))</a>
+                    <a class="btn btn-primary mt-sm-10" href="{{ route('register.form.step-5') }}">@lang('register::forms.button.next')</a>
                 </div>
             </div>
         </div>
@@ -66,12 +66,12 @@
                         type: file.type,
                         size: file.size
                     })
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                        .then(function (response) {
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
                 }
             }
         });
