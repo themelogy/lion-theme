@@ -10,6 +10,7 @@
             <div class="row">
                 <div class="col-md-12">
                     @include('register::stepper', ['step1' => 'active', 'step2'=>'active'])
+                    @include('register::errors')
                     {!! Form::open(['route' => ['register.form.step-2.put'], 'method' => 'post', 'class' => 'form', 'id'=>'step-form']) !!}
 
                     <div class="form__group">
@@ -100,24 +101,12 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="form-group @if($errors->first('credit_card.cars.*.department')) has-error @endif">
-                                            <label for="department"
-                                                   v-if="key == 0">@lang('register::forms.form.credit_card.cars_department')</label>
-                                            <select id="department" :name="'credit_card[cars]['+key+'][department]'"
-                                                    class="form-control" v-model="car.department">
-                                                <option v-for="department in departments" :value="department">@{{
-                                                    department }}
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div>
                                         <div class="form-group @if($errors->first('credit_card.cars.*.fuel')) has-error @endif">
                                             <label for="fuel"
                                                    v-if="key == 0">@lang('register::forms.form.credit_card.cars_fuel')</label>
                                             <select id="fuel" :name="'credit_card[cars]['+key+'][fuel]'"
                                                     class="form-control" v-model="car.fuel">
-                                                <option v-for="fuel in fuels" :value="fuel">@{{ fuel }}</option>
+                                                <option v-for="(fuel, index) in fuels" :value="index">@{{ fuel }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -127,7 +116,7 @@
                                                    v-if="key == 0">@lang('register::forms.form.credit_card.cars_kit')</label>
                                             <select id="kit" :name="'credit_card[cars]['+key+'][kit]'"
                                                     class="form-control" v-model="car.kit">
-                                                <option v-for="kit in kits" :value="kit">@{{ kit }}</option>
+                                                <option v-for="(kit, index) in kits" :value="index">@{{ kit }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -149,18 +138,11 @@
 
                     <div class="row" v-if="collateral_id == credit_card">
                         <div class="col-md-12">
-                            Kullanım bedellerini provizyon tutarı üzerinden yukarıda belirttiğim Kredi Kartı hesabıma
-                            borç kaydediniz. Şahsi bilgileriniz, (kredi kartı, adres, e-mail, telefon veya müşteri
-                            numarası vb.) bu bilgiler, sizin haberiniz veya onayınız olmadan ya da yasal yükümlülük
-                            altında bulunmadığı sürece 3. şahıslara kesinlikle verilmeyecektir. Bu bilgiler, en yüksek
-                            güvenlik ve gizlilik standartlarımızla korunacaktır. Bu sorumluluk firmamız tarafından,
-                            yerine getirilemediği takdirde bütün sorumluğu kayıtsız şartsız kabul etmektedir.
+                            @lang('register::forms.form.credit_card.agreement1')
                             <div class="checkbox">
                                 <label class="form-check @if($errors->first('credit_card.agree')) has-error @endif">
                                     <input name="credit_card[agree]" type="checkbox"
-                                           value="1" {{ @$form->credit_card->agree ? 'checked="checked"' : '' }}> Onay
-                                    Bilgisi (Yukarıda belirttiğim araç plakalarının alımlarını yukarıda belirtmiş
-                                    olduğum kredi kartından tahsil ediniz. Bilginize sunulur.)
+                                           value="1" {{ old('credit_card.agree', @$form->credit_card->agree) ? 'checked="checked"' : '' }}> @lang('register::forms.form.credit_card.agreement2')
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -186,17 +168,15 @@
                 collateral_id: '{{ old('collateral_id', $form->collateral_id) }}',
                 credit_card: '{{ setting('register::credit-card') }}',
                 collateral_types: {!! $collateralTypes !!},
-                cars: {!! old('credit_card.cars', @$form->credit_card->cars) ? json_encode(old('credit_card.cars', @$form->credit_card->cars)) : "[{ plate:'', brand: '', model:'', fuel: 'Benzin', department: 'Yönetim', kit: 'Automatic Kart', }]" !!},
-                fuels: ['Benzin', 'Dizel', 'LPG'],
-                departments: ['Yönetim', 'Muhasebe ve Finans', 'Pazarlama', 'Dış Ticaret', 'İnsan Kaynakları', 'Lojistik', 'Ar-Ge', 'IT', 'Basın Medya'],
-                kits: ['Automatic Kart', 'Taşıt Tanıma']
+                cars: {!! old('credit_card.cars', @$form->credit_card->cars) ? json_encode(old('credit_card.cars', @$form->credit_card->cars)) : "[{ plate:'', brand: '', model: '', fuel: '1', kit: '1', }]" !!},
+                fuels: {!! $fuelTypes->toJson() !!},
+                kits: {!! $kitTypes->toJson() !!}
             },
             methods: {
                 addRow: function (index, id) {
                     this.cars.splice(index + 1, 0, {});
-                    this.cars[index + 1].fuel = 'Benzin';
-                    this.cars[index + 1].department = 'Yönetim';
-                    this.cars[index + 1].kit = 'Automatic Kart';
+                    this.cars[index + 1].fuel = '1';
+                    this.cars[index + 1].kit = '1';
                 },
                 removeRow: function (index, id) {
                     this.cars.splice(index, 1);

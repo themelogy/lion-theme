@@ -74,6 +74,8 @@ mix.combine([
     resource_asset + '/css/icomoon.css',
 ], dist + '/css/vendor.min.css');
 
+mix.minify(dist + '/js/jquery.js');
+mix.minify(dist + '/js/owl-carousel.js');
 mix.minify(dist + '/js/custom.js');
 
 if ( isProduction )

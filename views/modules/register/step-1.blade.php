@@ -10,8 +10,14 @@
                 <div class="col-md-12">
 
                     @include('register::stepper', ['step1'=>'active'])
+                    @include('register::errors')
 
-                    {!! Form::open(['route' => ['register.form.step-1.put'], 'method' => 'post']) !!}
+                    {!! Form::open(['route' => ['register.form.step-1.put'], 'method' => 'post', 'id' => 'stepform']) !!}
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! Form::normalInput('reference_no', trans('register::forms.form.reference_no'), $errors, $form) !!}
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-6">

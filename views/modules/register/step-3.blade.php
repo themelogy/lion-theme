@@ -11,6 +11,8 @@
                 <div class="col-md-12">
 
                     @include('register::stepper', ['step1' => 'active', 'step2'=>'active', 'step3' => 'active'])
+                    @include('register::errors')
+
                     {!! Form::open(['route' => ['register.form.step-3.put'], 'method' => 'post', 'class' => 'form', 'id'=>'step-form']) !!}
 
                     <div class="row">
@@ -27,9 +29,9 @@
                         <div class="col-md-12">
                             <table class="table table-bordered table-striped">
                                 <tr>
-                                    <th style="width: 25%;">İskonto Yüzdesi</th>
+                                    <th style="width: 25%;">@lang('register::forms.collateral.discount percentage')</th>
                                     <td>: @{{ percent }}</td>
-                                    <th style="width: 25%;">Aylık Tüketim Oranına Göre İndirim</th>
+                                    <th style="width: 25%;">@lang('register::forms.collateral.discount consumption')</th>
                                     <td>: @{{ price }}</td>
                                 </tr>
                             </table>
@@ -53,7 +55,11 @@
 @endsection
 
 @push('js-stack')
-    {!! Theme::script('js/vue.js') !!}
+    @if(app()->environment() == 'local')
+        {!! Theme::script('js/vue.js') !!}
+    @else
+        {!! Theme::script('js/vue.min.js') !!}
+    @endif
     {!! Theme::script('js/axios.min.js') !!}
     <script>
         new Vue({

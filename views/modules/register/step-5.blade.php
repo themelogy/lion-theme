@@ -5,26 +5,33 @@
         <h1 class="title">@lang('register::registers.title.heading')</h1>
     @endcomponent
 
-    <div class="page-content mb20 step-form">
+    <div class="page-content mb20 step-form" id="step-form">
         <div class="container txt-lg">
             <div class="row">
                 <div class="col-md-12">
 
-                    @if($errors->any())
-                        <div class="alert alert-warning">
-                        @foreach($errors->all() as $message)
-                            {{ $message }}
-                        @endforeach
-                        </div>
-                    @endif
-
                     @include('register::stepper', ['step1' => 'active', 'step2'=>'active', 'step3' => 'active', 'step4' => 'active', 'step5'=>'active'])
+
+                    @component('register::errors')
+                        @if($errors->any())
+                            <div class="alert alert-warning">
+                                @foreach($errors->all() as $message)
+                                    {{ $message }}
+                                @endforeach
+                            </div>
+                        @endif
+                    @endcomponent
 
                     {!! Form::open(['route' => ['register.form.step-5.put'], 'method' => 'post', 'class' => 'form']) !!}
 
+
                     <div class="table-responsive">
                         <table class="table table-striped">
-                            <caption><h5 class="theme-txt-color">Başvuru Bilgileri</h5></caption>
+                            <caption><h5 class="theme-txt-color">@lang('register::forms.stepper.step-1')</h5></caption>
+                            <tr>
+                                <th>@lang('register::forms.form.reference_no')</th>
+                                <td colspan="3">: {{ $form->reference_no }}</td>
+                            </tr>
                             <tr>
                                 <th style="width: 25%">@lang('register::forms.form.company')</th>
                                 <td>: {{ $form->company }}</td>
@@ -41,14 +48,14 @@
                                 <th>@lang('register::forms.form.work_phone') :</th>
                                 <td>: {{ $form->work_phone }}</td>
                                 <th>@lang('register::forms.form.mobile_phone') :</th>
-                                <td>: {{ $form->work_phone }}</td>
+                                <td>: {{ $form->mobile_phone }}</td>
                             </tr>
                         </table>
                     </div>
 
                     <div class="table-responsive">
                         <table class="table">
-                            <caption><h5 class="theme-txt-color">Teminat Türü</h5></caption>
+                            <caption><h5 class="theme-txt-color">@lang('register::forms.stepper.step-2')</h5></caption>
                             <tr>
                                 <th style="width: 25%;">@lang('register::forms.form.collateral_id')</th>
                                 <td>: <strong>{{ mb_strtoupper($form->collateral()->where('id', $form->collateral_id)->first()->title) }}</strong></td>
@@ -64,7 +71,7 @@
                             </tr>
                             <tr>
                                 <th>@lang('register::forms.form.credit_card.no')</th>
-                                <td>: {!! str_pad(substr($form->credit_card->no, -11), strlen($form->credit_card->no), '*', STR_PAD_LEFT); !!}</td>
+                                <td>: {!! str_pad(substr($form->credit_card->no, -7), strlen($form->credit_card->no), '*', STR_PAD_LEFT); !!}</td>
                             </tr>
                             <tr>
                                 <th>@lang('register::forms.form.credit_card.end_date')</th>
@@ -95,10 +102,9 @@
                                         <div style="padding: 10px 20px" class="thumbnail">
                                             <h4>{{ $car->plate }}</h4>
                                             <p>
-                                                {{ $car->department }}<br/>
                                                 {{ $car->brand.' '.$car->model }}<br/>
-                                                {{ $car->fuel }}<br/>
-                                                {{ $car->kit }}
+                                                {{ $fuelTypes->get($car->fuel) }}<br/>
+                                                {{ $kitTypes->get($car->kit) }}
                                             </p>
                                         </div>
                                     </div>
@@ -112,7 +118,7 @@
 
                     <div class="table-responsive">
                         <table class="table table-responsive">
-                            <caption><h5 class="theme-txt-color">Teminat/Tüketim</h5></caption>
+                            <caption><h5 class="theme-txt-color">@lang('register::forms.stepper.step-3')</h5></caption>
                             <tr>
                                 <th style="width: 25%;">@lang('register::forms.form.collateral_amount')</th>
                                 <td>: {{ number_format($form->collateral_amount, 2) }} TL</td>
@@ -120,14 +126,14 @@
                                 <td>: {{ number_format($form->monthly_consumption, 2) }} TL</td>
                             </tr>
                             <tr>
-                                <th style="width: 25%;">İskonto Yüzdesi</th>
+                                <th style="width: 25%;">@lang('register::forms.collateral.discount percentage')</th>
                                 <td>: %{{ $rate['percent'] }}</td>
-                                <th style="width: 25%;">Aylık Tüketim Oranına Göre İndirim</th>
+                                <th style="width: 25%;">@lang(('register::forms.collateral.discount consumption'))</th>
                                 <td>: {!! number_format(($rate['percent'] / 100) * $form->monthly_consumption, 2) !!} TL</td>
                             </tr>
                             @if(isset($rate['file']))
                             <tr>
-                                <th style="width: 25%;">Teminat Formları</th>
+                                <th style="width: 25%;">@lang('register::forms.collateral.forms')</th>
                                 <td>
                                     @if(is_array($rate['file']))
                                         @foreach($rate['file'] as $file)
@@ -147,9 +153,9 @@
                     @if(isset($form_files))
                     <div class="table-responsive">
                         <table class="table table-responsive">
-                            <caption><h5 class="theme-txt-color">Başvuru Belgeleri</h5></caption>
+                            <caption><h5 class="theme-txt-color">@lang('register::forms.stepper.step-4')</h5></caption>
                             <tr>
-                                <th style="width: 25%;">Belgeler</th>
+                                <th style="width: 25%;">@lang('register::forms.title.docs')</th>
                                 <td>
                                     @foreach($form_files as $file)
                                         <a href="{{ url('assets/register/'.$file->name) }}">{{ $file->name }}</a><br/>
@@ -162,21 +168,29 @@
                     @endif
 
                     @if(isset($form->credit_card->cars))
-                        @if(array_search("Automatic Kart", array_column($form->credit_card->cars, "kit")) !== false)
+                        @if(array_search("1", array_column($form->credit_card->cars, "kit")) !== false)
                             {!! Form::normalTextarea('shipping_address', trans('register::forms.form.shipping_address'), $errors, $form, ['class'=>'form-control', 'rows'=>4]) !!}
                         @endif
                     @endif
 
                     <div class="checkbox">
                         <label class="form-check @if($errors->first('agreement1')) has-error @endif">
-                            <input name="agreement1" type="checkbox" value="1" {{ @$form->agreement1 || old('agreement1') == 1 ? 'checked="checked"' : '' }}> @page('aslanlar-petrol-kisisel-verilerin-korunmasi-ve-islenmesi-proseduru', 'link')  sayfamızda bulunan "KVKK PROSEDÜRÜ" nü okudum ve onaylıyorum.
+                            <input name="agreement1" type="checkbox" value="1" {{ @$form->agreement1 || old('agreement1') == 1 ? 'checked="checked"' : '' }}>
+                            <a @click="showPage({{ Widget::get('page', ['aslanlar-petrol-kisisel-verilerin-korunmasi-ve-islenmesi-proseduru', 'id']) }})">
+                                {{ Widget::get('page', ['aslanlar-petrol-kisisel-verilerin-korunmasi-ve-islenmesi-proseduru', 'title']) }}
+                            </a>
+                            @lang('register::forms.agreement.check1')
                             <span class="checkmark"></span>
                         </label>
                     </div>
 
                     <div class="checkbox">
                         <label class="form-check @if($errors->first('agreement2')) has-error @endif">
-                            <input name="agreement2" type="checkbox" value="1" {{ @$form->agreement2 || old('agreement2') == 1 ? 'checked="checked"' : '' }}> @page('musteri-aydinlatma-metni', 'link')  sayfamızda bulunan "MÜŞTERİ AYDINLATMA METNİ" ve "TTS MÜŞTERİ AYDINLATMA METNİ" 'ni okudum ve onaylıyorum.
+                            <input name="agreement2" type="checkbox" value="1" {{ @$form->agreement2 || old('agreement2') == 1 ? 'checked="checked"' : '' }}>
+                            <a @click="showPage({{ Widget::get('page', ['musteri-aydinlatma-metni', 'id']) }})">
+                                @page('musteri-aydinlatma-metni', 'title')
+                            </a>
+                            @lang('register::forms.agreement.check2')
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -185,6 +199,11 @@
 
                     {!! Form::close() !!}
 
+                    <modal v-if="showModal" @close="showModal = false">
+                        <div slot="header" v-html="showTitle">@lang('register::forms.messages.loading')</div>
+                        <div slot="body" v-html="showHtml">@lang('register::forms.messages.loading')</div>
+                    </modal>
+
                 </div>
             </div>
         </div>
@@ -192,5 +211,126 @@
 @endsection
 
 @push('js-stack')
-    {!! Theme::script('js/vue.js') !!}
+    <script src="{{ Module::asset('register:js/vue.js') }}"></script>
+    <script src="{{ Module::asset('register:js/axios.min.js') }}"></script>
+    <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+            <div class="modal-mask">
+                <div class="modal-wrapper">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <h3 class="theme-txt-color"><slot name="header"></slot></h3>
+                        </div>
+                        <div class="modal-body">
+                            <slot name="body"></slot>
+                        </div>
+                        <div class="modal-footer">
+                            <slot name="footer">
+                                <button class="btn btn-primary modal-default-button" @click="$emit('close')">
+                                    Okudum ve Anladım
+                                </button>
+                            </slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
+@endpush
+
+@push('js-stack')
+    <script>
+        Vue.component("modal", {
+            template: "#modal-template"
+        });
+        axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        new Vue({
+            el: "#step-form",
+            data: {
+                showModal: false,
+                showHtml: "",
+                showTitle: ""
+            },
+            methods: {
+                showPage: function (pageId) {
+                    this.showModal = true;
+                    this.showTitle = "Yükleniyor..."
+                    this.showHtml = "Yükleniyor..."
+                    axios.get('{{ route('api.page.get') }}?page_id='+pageId)
+                        .then(response => {
+                            this.showHtml = response.data.data.body;
+                            this.showTitle = response.data.data.title;
+                        })
+                }
+            }
+        });
+    </script>
+    <style>
+        .modal-mask {
+            position: fixed;
+            z-index: 9998;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: table;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-wrapper {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .modal-container {
+            max-width: 800px;
+            margin: 0px auto;
+            padding: 20px 30px;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+            transition: all 0.3s ease;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        .modal-header h3 {
+            margin-top: 0;
+            color: #42b983;
+        }
+
+        .modal-body {
+            margin: 20px 0;
+            height: 500px;
+            overflow: auto;
+        }
+
+        .modal-default-button {
+            float: right;
+        }
+
+        /*
+         * The following styles are auto-applied to elements with
+         * transition="modal" when their visibility is toggled
+         * by Vue.js.
+         *
+         * You can easily play with the modal transition by editing
+         * these styles.
+         */
+
+        .modal-enter {
+            opacity: 0;
+        }
+
+        .modal-leave-active {
+            opacity: 0;
+        }
+
+        .modal-enter .modal-container,
+        .modal-leave-active .modal-container {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+    </style>
 @endpush

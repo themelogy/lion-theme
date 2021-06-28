@@ -5,9 +5,9 @@
 
 @stack('css-inline')
 
-{!! Theme::script('js/jquery.min.js') !!}
+<script src="{{ mix('/themes/lion/js/jquery.min.js') }}"></script>
 <script src="{{ mix('/themes/lion/js/vendor.min.js') }}"></script>
-{!! Theme::script('js/owl-carousel.js') !!}
+<script src="{{ mix('/themes/lion/js/owl-carousel.min.js') }}"></script>
 
 {!! Asset::js() !!}
 @stack('js-stack')

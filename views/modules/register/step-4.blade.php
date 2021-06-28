@@ -11,6 +11,7 @@
                 <div class="col-md-12">
 
                     @include('register::stepper', ['step1' => 'active', 'step2'=>'active', 'step3' => 'active', 'step4' => 'active'])
+                    @include('register::errors')
 
                     <div id="step-form">
 
@@ -27,7 +28,11 @@
 @endsection
 
 @push('js-stack')
-    {!! Theme::script('js/vue.js') !!}
+    @if(app()->environment() == 'local')
+        {!! Theme::script('js/vue.js') !!}
+    @else
+        {!! Theme::script('js/vue.min.js') !!}
+    @endif
     {!! Theme::script('js/axios.min.js') !!}
     {!! Theme::script('js/vue2Dropzone.js') !!}
     {!! Theme::style('css/vue2Dropzone.min.css') !!}
