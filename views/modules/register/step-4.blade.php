@@ -53,7 +53,7 @@
                     dictCancelUpload: "Yüklemeyi İptal Et",
                     addRemoveLinks: true,
                     autoDiscover: false,
-                    acceptedFiles: '.png, .jpg, .xls, .xlsx, .doc, .docx, .pdf, .txt'
+                    acceptedFiles: '.png, .jpg, .jpeg, .xls, .xlsx, .doc, .docx, .pdf, .txt'
                 }
             },
             mounted() {
