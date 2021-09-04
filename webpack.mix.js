@@ -88,7 +88,7 @@ if( ! isProduction) {
     mix
         .browserSync(
         {
-            proxy: 'aslanlarpetrol.test',
+            proxy: 'aslanlarpetrol.local',
             files: [source + '/**/*.*']
         }
     );

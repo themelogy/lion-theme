@@ -93,18 +93,18 @@
                                 <th>@lang('register::forms.form.credit_card.address')</th>
                                 <td>: {!! $form->credit_card->address !!}</td>
                             </tr>
-                            @if(isset($form->credit_card->cars))
+                            @if(isset($form->vehicles))
                             <tr>
                                 <th>@lang('register::forms.form.credit_card.cars')</th>
                                 <td>
-                                    @foreach($form->credit_card->cars as $car)
+                                    @foreach($form->vehicles as $vehicle)
                                     <div style="display: inline-flex;">
                                         <div style="padding: 10px 20px" class="thumbnail">
-                                            <h4>{{ $car->plate }}</h4>
+                                            <h4>{{ $vehicle->plate }}</h4>
                                             <p>
-                                                {{ $car->brand.' '.$car->model }}<br/>
-                                                {{ $fuelTypes->get($car->fuel) }}<br/>
-                                                {{ $kitTypes->get($car->kit) }}
+                                                {{ $vehicle->brand.' '.$vehicle->model }}<br/>
+                                                {{ $fuelTypes->get($vehicle->fuel) }}<br/>
+                                                {{ $kitTypes->get($vehicle->kit) }}
                                             </p>
                                         </div>
                                     </div>
@@ -167,8 +167,8 @@
                     </div>
                     @endif
 
-                    @if(isset($form->credit_card->cars))
-                        @if(array_search("1", array_column($form->credit_card->cars, "kit")) !== false)
+                    @if(isset($form->vehicles))
+                        @if(array_search("1", array_column($form->vehicles, "kit")) !== false)
                             {!! Form::normalTextarea('shipping_address', trans('register::forms.form.shipping_address'), $errors, $form, ['class'=>'form-control', 'rows'=>4]) !!}
                         @endif
                     @endif
@@ -216,7 +216,7 @@
     <script type="text/x-template" id="modal-template">
         <transition name="modal">
             <div class="modal-mask">
-                <div class="modal-wrapper">
+                <div class="modal-wrapper container">
                     <div class="modal-container">
                         <div class="modal-header">
                             <h3 class="theme-txt-color"><slot name="header"></slot></h3>
@@ -301,8 +301,15 @@
 
         .modal-body {
             margin: 20px 0;
-            height: 500px;
+            margin-right: 20px;
+            height: 300px;
             overflow: auto;
+            width: 100%;
+        }
+
+        .modal-body > div {
+            max-width: 100%;
+            margin: 0;
         }
 
         .modal-default-button {
