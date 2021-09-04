@@ -95,7 +95,7 @@
                             </tr>
                             @if(isset($form->vehicles))
                             <tr>
-                                <th>@lang('register::forms.form.credit_card.cars')</th>
+                                <th>@lang('register::forms.form.vehicles.vehicles')</th>
                                 <td>
                                     @foreach($form->vehicles as $vehicle)
                                     <div style="display: inline-flex;">
